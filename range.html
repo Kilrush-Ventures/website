@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>The range — modular pods, garden offices, granny flats | Kilrush Ventures, Ennis</title>
+<meta name="description" content="Six families of modular unit built in Ennis, Co. Clare: capsule pod homes, garden offices, granny flats and annexes, site and shop units, expanding homes and custom pods. From €8,000 plus VAT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #F1EDE6; color: #1A1C18; font-family: "Manrope", ui-sans-serif, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #1A1C18; text-decoration: none; }
+  a:hover { color: #A98750; }
+  img { max-width: 100%; }
+</style>
+</helmet>
+
+<div style="background:#F1EDE6; color:#1A1C18; fontFamily:'Manrope', system-ui, sans-serif; overflow-x:hidden">
+
+  <dc-import name="header" hint-size="100%,64px"></dc-import>
+
+  <section style="maxWidth:1280px; margin:0 auto; padding:clamp(40px,6vw,72px) clamp(18px,4vw,32px) 0">
+    <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#A98750">Six families of unit</div>
+    <h1 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(36px,6vw,74px); lineHeight:1.04; letterSpacing:-0.015em; margin:16px 0 0; maxWidth:18ch; textWrap:balance">The range, and what each one is for</h1>
+    <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(320px, 1fr)); gap:clamp(22px,4vw,48px); alignItems:end; marginTop:clamp(20px,3vw,30px)">
+      <p style="fontSize:clamp(16px,1.6vw,18px); lineHeight:1.64; color:#33362F; margin:0; maxWidth:54ch; textWrap:pretty">Every unit is built off site and arrives finished, with the kitchen, bathroom, heating and wiring already in. Base sizes are a starting point. The build is custom, so the dimensions and the layout follow what your site will take.</p>
+      <div style="display:flex; alignItems:flex-end; gap:clamp(16px,3vw,28px); flexWrap:wrap">
+        <a href="visit.html" style="background:#1A1C18; color:#F1EDE6; padding:16px 26px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="background:#A98750; color:#1A1C18">Come and walk through them</a>
+        <a href="uploads/CS-Modular-House-Catalog.pdf" target="_blank" rel="noopener" download style="flex:0 0 auto; width:126px; height:126px; borderRadius:50%; background:#1A1C18; color:#F1EDE6; display:flex; flexDirection:column; alignItems:center; justifyContent:center; textAlign:center; gap:6px; border:1px solid #1A1C18; boxShadow:0 0 0 4px #F1EDE6, 0 0 0 5px rgba(169,135,80,0.55); transform:rotate(-7deg); transition:transform .4s cubic-bezier(.2,.7,.3,1), background .3s, color .3s" style-hover="transform:rotate(0deg) scale(1.05); background:#A98750; color:#1A1C18; borderColor:#A98750">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 3v12"></path><path d="M7 11l5 5 5-5"></path><path d="M4 20h16"></path></svg>
+          <span style="fontSize:10.5px; fontWeight:700; letterSpacing:0.13em; textTransform:uppercase; lineHeight:1.5; maxWidth:86px">Download our brochure</span>
+          <span style="fontSize:9.5px; letterSpacing:0.12em; textTransform:uppercase; opacity:0.62">PDF</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="maxWidth:1280px; margin:0 auto; padding:clamp(36px,5vw,60px) clamp(18px,4vw,32px) 0">
+    <sc-for list="{{ range }}" as="unit" hint-placeholder-count="6">
+      <article style="borderTop:1px solid rgba(26,28,24,0.16); padding:clamp(28px,4vw,48px) 0; display:grid; gridTemplateColumns:repeat(auto-fit, minmax(300px, 1fr)); gap:clamp(24px,4vw,52px); alignItems:center">
+        <div style="order:{{ unit.textOrder }}">
+          <div style="display:flex; alignItems:center; gap:14px">
+            <span style="fontSize:11px; fontWeight:700; letterSpacing:0.14em; padding:6px 11px; background:{{ unit.accent }}; color:#FAF8F4">{{ unit.no }}</span>
+            <span style="height:1px; width:44px; background:{{ unit.accent }}; opacity:0.45; display:block"></span>
+          </div>
+          <h2 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(28px,3.4vw,44px); lineHeight:1.08; letterSpacing:-0.012em; margin:16px 0 0; color:{{ unit.dark }}">{{ unit.title }}</h2>
+          <p style="fontSize:16px; lineHeight:1.66; color:#3D4038; margin:16px 0 0; maxWidth:52ch; textWrap:pretty">{{ unit.body }}</p>
+          <p style="fontSize:15px; lineHeight:1.66; color:#54574E; margin:14px 0 0; maxWidth:52ch; textWrap:pretty">{{ unit.detail }}</p>
+          <div style="display:flex; gap:8px; flexWrap:wrap; marginTop:20px">
+            <sc-for list="{{ unit.tags }}" as="tag" hint-placeholder-count="3">
+              <span style="fontSize:11.5px; fontWeight:600; letterSpacing:0.08em; textTransform:uppercase; padding:7px 13px; border:1px solid {{ tag.line }}; color:{{ tag.color }}">{{ tag.label }}</span>
+            </sc-for>
+          </div>
+        </div>
+        <div style="order:{{ unit.imgOrder }}; height:clamp(260px,32vw,400px); background:{{ unit.tint }}; position:relative; overflow:hidden; border:1px solid rgba(26,28,24,0.1)">
+          <sc-if value="{{ unit.hasPhoto }}" hint-placeholder-val="{{ true }}">
+            <img src="{{ unit.src }}" srcset="{{ unit.srcset }}" sizes="(max-width: 760px) 100vw, 50vw" alt="{{ unit.alt }}" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; objectFit:cover; display:block">
+          </sc-if>
+          <sc-if value="{{ unit.noPhoto }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute; inset:0; display:flex; flexDirection:column; alignItems:center; justifyContent:center; textAlign:center; padding:28px; gap:12px">
+              <span style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(56px,7vw,88px); lineHeight:1; color:{{ unit.accent }}; opacity:0.5">{{ unit.no }}</span>
+              <span style="fontSize:13px; lineHeight:1.6; color:{{ unit.dark }}; maxWidth:26ch">Built to order. Ring us and we will tell you what is on the floor in Ennis this week.</span>
+            </div>
+          </sc-if>
+        </div>
+      </article>
+    </sc-for>
+  </section>
+
+  <section style="background:#1A1C18; color:#EDEAE2; marginTop:clamp(48px,7vw,80px)">
+    <div style="maxWidth:1280px; margin:0 auto; padding:clamp(52px,7vw,84px) clamp(18px,4vw,32px)">
+      <div style="display:flex; alignItems:end; justifyContent:space-between; gap:24px; flexWrap:wrap">
+        <div>
+          <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#C9A96B">Numbers to plan around</div>
+          <h2 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(30px,4vw,50px); margin:14px 0 0; letterSpacing:-0.01em">What you actually get</h2>
+        </div>
+        <p style="fontSize:14.5px; color:#B4B8AC; margin:0; maxWidth:40ch; lineHeight:1.6">Every unit leaves the floor finished. Layouts and dimensions are yours to set, so these are the constants.</p>
+      </div>
+
+      <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap:1px; background:rgba(237,234,226,0.18); border:1px solid rgba(237,234,226,0.18); marginTop:clamp(24px,3vw,34px)">
+        <sc-for list="{{ facts }}" as="f" hint-placeholder-count="5">
+          <div style="background:#1A1C18; padding:clamp(22px,2.6vw,30px) clamp(18px,2vw,24px)">
+            <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(28px,3.2vw,38px); lineHeight:1; color:#C9A96B; letterSpacing:-0.01em">{{ f.figure }}</div>
+            <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#EDEAE2; marginTop:14px">{{ f.label }}</div>
+            <p style="fontSize:13.5px; lineHeight:1.6; color:#9BA093; margin:8px 0 0">{{ f.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(300px, 1fr)); gap:clamp(28px,4vw,52px); marginTop:clamp(36px,5vw,56px)">
+        <div>
+          <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#C9A96B">Standard in every unit</div>
+          <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap:0 clamp(20px,3vw,36px); marginTop:18px">
+            <sc-for list="{{ standard }}" as="s" hint-placeholder-count="12">
+              <div style="display:flex; gap:12px; alignItems:baseline; padding:11px 0; borderBottom:1px solid rgba(237,234,226,0.12); fontSize:15px; color:#D8DAD1">
+                <span style="width:5px; height:5px; background:#C9A96B; display:block; flex:0 0 auto; transform:translateY(-3px)"></span>
+                {{ s }}
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#C9A96B">Yours to decide</div>
+          <div style="marginTop:18px">
+            <sc-for list="{{ options }}" as="o" hint-placeholder-count="4">
+              <div style="borderBottom:1px solid rgba(237,234,226,0.12); padding:15px 0">
+                <div style="fontSize:15.5px; color:#EDEAE2">{{ o.title }}</div>
+                <div style="fontSize:13.5px; color:#9BA093; marginTop:5px; lineHeight:1.6">{{ o.body }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex; alignItems:flex-end; justifyContent:space-between; gap:24px; flexWrap:wrap; marginTop:clamp(32px,4vw,44px)">
+        <div>
+          <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(24px,2.8vw,34px); letterSpacing:-0.01em">Models start from €8,000 plus VAT</div>
+          <p style="fontSize:14.5px; color:#9BA093; margin:10px 0 0; maxWidth:52ch; lineHeight:1.6">Price follows the size, the layout and the finish, so there is no single price list. Ring with the space you have in mind and we will give you a figure.</p>
+        </div>
+        <div style="display:flex; gap:12px; flexWrap:wrap">
+          <a href="tel:+353874354655" style="background:#C9A96B; color:#1A1C18; padding:16px 28px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="background:#F1EDE6; color:#1A1C18">Call 087 435 4655</a>
+          <a href="https://wa.me/353874354655" target="_blank" rel="noopener" style="border:1px solid rgba(237,234,226,0.35); color:#EDEAE2; padding:16px 28px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="borderColor:#EDEAE2; background:rgba(237,234,226,0.08); color:#EDEAE2">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="maxWidth:1280px; margin:0 auto; padding:clamp(48px,7vw,80px) clamp(18px,4vw,32px)">
+    <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(260px, 1fr)); gap:clamp(20px,3vw,32px)">
+      <a href="planning.html" style="border:1px solid rgba(26,28,24,0.14); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
+        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#A98750">Next</div>
+        <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:26px; marginTop:12px">Do you need planning permission?</div>
+        <p style="fontSize:14.5px; color:#54574E; margin:10px 0 0; lineHeight:1.6">Since July 2026, often not. Here are the sizes that changed.</p>
+      </a>
+      <a href="showroom.html" style="border:1px solid rgba(26,28,24,0.14); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
+        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#A98750">See them</div>
+        <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:26px; marginTop:12px">Inside the Ennis showroom</div>
+        <p style="fontSize:14.5px; color:#54574E; margin:10px 0 0; lineHeight:1.6">Photographs of the units standing on the floor.</p>
+      </a>
+      <a href="faq.html" style="border:1px solid rgba(26,28,24,0.14); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
+        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#A98750">Still wondering</div>
+        <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:26px; marginTop:12px">Twelve questions we get</div>
+        <p style="fontSize:14.5px; color:#54574E; margin:10px 0 0; lineHeight:1.6">Cost, delivery, warranty, connections, letting.</p>
+      </a>
+    </div>
+  </section>
+
+  <dc-import name="footer" hint-size="100%,300px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const A = { brass: "#A98750", olive: "#5C6B4A", clay: "#A9603F", slate: "#4A5A63", stone: "#8A7F6B" };
+    const D = { brass: "#6E5628", olive: "#3D4A2F", clay: "#7A3F26", slate: "#2E3C44", stone: "#514A3B" };
+    const T = { brass: "#F7F2E8", olive: "#F0F3EA", clay: "#F9EFE9", slate: "#EDF1F3", stone: "#F4F1EA" };
+    const tag = (label, key) => ({ label, color: D[key], line: A[key] + "66" });
+
+    const range = [
+      { no: "01", key: "brass", title: "Capsule pod homes", slot: "kv-p1", src: "assets/capsule-pod-v2-1600.webp", srcset: "assets/capsule-pod-v2-900.webp 900w, assets/capsule-pod-v2-1600.webp 1600w", alt: "Capsule pod home with lit octagonal glazing on the Ennis showroom floor",
+        body: "A complete small home inside one curved, glazed shell, with the bed, kitchen and shower room already fitted. It lands in the morning and someone can sleep in it that night, which is why they let so well by the week.",
+        detail: "Underfloor heating, air conditioning and a fully finished bathroom come as standard, so there is nothing to fit out once it is craned into place.",
+        tags: ["Short let ready", "Arrives finished", "One bed"] },
+      { no: "02", key: "olive", title: "Garden offices", slot: "kv-p2", src: "assets/garden-office-v2-1600.webp", srcset: "assets/garden-office-v2-900.webp 900w, assets/garden-office-v2-1600.webp 1600w", alt: "White glazed garden office pod, full height window, at the Ennis yard",
+        body: "Ten steps from the back door and the commute is over. Wired for a desk, a heater and a proper connection, so it earns its place in February as well as June.",
+        detail: "Garden structures up to 30 m² sit inside the planning exemption, which is the band most garden offices are built to. Insulated to 75 mm throughout.",
+        tags: ["Warm year round", "Wired and ready", "Up to 30 m²"] },
+      { no: "03", key: "clay", title: "Granny flats & annexes", slot: "kv-p3", src: "assets/granny-flat-1600.webp", srcset: "assets/granny-flat-900.webp 900w, assets/granny-flat-1600.webp 1600w", alt: "Granny flat with sliding glass doors, timber slat cladding and a fitted kitchen inside",
+        body: "One and two bedroom layouts with a real kitchen and bathroom. Independence for a parent or a grown child, close enough for Sunday dinner and far enough that everyone keeps the peace.",
+        detail: "Built to the 32 to 45 m² band the new exemption allows for a detached dwelling in a back garden. Fourteen days notice to the council and no application to wait on.",
+        tags: ["1 or 2 bed", "Full bathroom", "32–45 m²"] },
+      { no: "04", key: "slate", title: "Site & shop units", slot: "kv-p4", src: "assets/site-unit-1600.webp", srcset: "assets/site-unit-900.webp 900w, assets/site-unit-1600.webp 1600w", alt: "20ft site unit converted to a serving hatch, alongside stacked container units",
+        body: "Steel boxes in 20ft and 40ft that turn into site offices, canteens, stores, a coffee hatch or a small shop. Single or stacked, bolted down in an afternoon and lifted again when the job moves on.",
+        detail: "The cheapest way into the range and the quickest to get hold of, because some are on the floor already rather than built to order.",
+        tags: ["20ft & 40ft", "Stackable", "Often in stock"] },
+      { no: "05", key: "stone", title: "Expanding homes", slot: "kv-p5", src: "assets/expanding-home-1600.webp", srcset: "assets/expanding-home-900.webp 900w, assets/expanding-home-1600.webp 1600w", alt: "Expanding home, stone clad with bi-fold glazing",
+        body: "Arrives folded on the back of a lorry and opens out on site to nearly three times the width. Stone clad outside, bi-fold glass across the front, and the walls, wiring and plumbing already in.",
+        detail: "The most floor area you can get onto a garden in a single delivery. Close to twelve tonnes when it lands, so the base and the access matter more here than anywhere else in the range.",
+        tags: ["Folds for transport", "Bi-fold glazing", "Stone clad"] },
+      { no: "06", key: "brass", title: "Custom pod homes", slot: "kv-p6", src: "assets/custom-pod-1600.webp", srcset: "assets/custom-pod-900.webp 900w, assets/custom-pod-1600.webp 1600w", alt: "Custom pod home with lit wraparound glazing",
+        body: "The high spec end of the pods. Moulded gloss shell, wraparound glazing with a lit surround, keypad entry and a fitted interior.",
+        detail: "Built to your layout rather than off a shelf, so the room count, the window positions and the finish inside are settled before it is made. Three months from order.",
+        tags: ["Built to your layout", "Keypad entry", "3 month build"] }
+    ].map((u, i) => ({
+      ...u,
+      accent: A[u.key], dark: D[u.key], tint: T[u.key],
+      hasPhoto: !!u.src, noPhoto: !u.src,
+      textOrder: i % 2 === 0 ? 1 : 2,
+      imgOrder: i % 2 === 0 ? 2 : 1,
+      tags: u.tags.map(t => tag(t, u.key))
+    }));
+
+    const facts = [
+      { figure: "32–45 m²", label: "Floor area", body: "The band the new planning exemption allows. Base sizes are a starting point, dimensions can go where you need them." },
+      { figure: "75 mm", label: "Insulation", body: "On every wall, floor and ceiling, so the unit holds heat in a Clare winter." },
+      { figure: "3 months", label: "Custom build", body: "From order to delivery on a fully custom unit, with a 50% deposit up front. Some units are on the floor now and can go sooner." },
+      { figure: "50 year", label: "Warranty", body: "On the unit itself. Anything that goes wrong, we come and repair it." },
+      { figure: "12 t", label: "Weight", body: "Close to twelve tonnes delivered, which is why the base and the access have to be right." }
+    ];
+
+    const standard = [
+      "Fitted kitchen", "Fully finished bathroom", "Underfloor heating", "Air conditioning",
+      "Flooring throughout", "Decking", "Bed", "Touch mirrors", "Blinds", "Electric curtains",
+      "Wired throughout", "Plumbed and ready for water"
+    ];
+
+    const options = [
+      { title: "Any layout, any dimensions", body: "Base sizes are a starting point, the build is fully custom. Move walls, change the room count, set the window positions." },
+      { title: "Alloy cladding, any colour", body: "Exterior finish to your choice. Other finishes are on the floor in the showroom, worth seeing in person." },
+      { title: "Off grid", body: "A unit can be specified to run completely off the grid if the site has no services." },
+      { title: "Craning and access", body: "Our own crane truck delivers to the site. Lifting over a wall or into a tight garden is arranged separately." }
+    ];
+
+    return { range, facts, standard, options };
+  }
+}
+
+</script>
+</body>
+</html>

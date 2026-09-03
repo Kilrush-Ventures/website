@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Planning exemption for garden dwellings in Ireland, 2026 | Kilrush Ventures</title>
+<meta name="description" content="Since 27 July 2026 a detached habitable dwelling of 32 to 45 m² in a back garden is exempted development in Ireland, along with garden structures up to 30 m². What the sizes mean and what still applies.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #F1EDE6; color: #1A1C18; font-family: "Manrope", ui-sans-serif, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #1A1C18; text-decoration: none; }
+  a:hover { color: #A98750; }
+</style>
+</helmet>
+
+<div style="background:#F1EDE6; color:#1A1C18; fontFamily:'Manrope', system-ui, sans-serif; overflow-x:hidden">
+
+  <dc-import name="header" hint-size="100%,64px"></dc-import>
+
+  <section style="maxWidth:1280px; margin:0 auto; padding:clamp(40px,6vw,72px) clamp(18px,4vw,32px) 0">
+    <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#A98750">New rules, since 27 July 2026</div>
+    <h1 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(36px,6vw,74px); lineHeight:1.04; letterSpacing:-0.015em; margin:16px 0 0; maxWidth:19ch; textWrap:balance">The planning rules moved in your favour</h1>
+    <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(320px, 1fr)); gap:clamp(22px,4vw,48px); alignItems:end; marginTop:clamp(20px,3vw,30px)">
+      <p style="fontSize:clamp(16px,1.6vw,18px); lineHeight:1.64; color:#33362F; margin:0; maxWidth:54ch; textWrap:pretty">The first real change in almost twenty five years. A habitable dwelling can now go in the back garden of a house in Ireland without a planning application, and the units we build are sized to sit inside that band.</p>
+      <div style="display:flex; gap:12px; flexWrap:wrap">
+        <a href="tel:+353874354655" style="background:#1A1C18; color:#F1EDE6; padding:16px 26px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="background:#A98750; color:#1A1C18">Talk it through with us</a>
+        <a href="https://www.gov.ie/en/department-of-housing-local-government-and-heritage/press-releases/new-planning-exemptions-regulations-come-into-effect-today/" target="_blank" rel="noopener" style="border:1px solid rgba(26,28,24,0.28); color:#1A1C18; padding:16px 26px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="borderColor:#1A1C18; background:rgba(26,28,24,0.04)">Read the announcement</a>
+      </div>
+    </div>
+
+    <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap:clamp(12px,1.4vw,18px); marginTop:clamp(30px,4vw,44px)">
+      <sc-for list="{{ planning }}" as="p" hint-placeholder-count="4">
+        <div style="background:{{ p.tint }}; padding:clamp(24px,2.6vw,32px) clamp(20px,2vw,26px) clamp(28px,3vw,36px); border:1px solid rgba(26,28,24,0.1); borderTop:3px solid {{ p.accent }}">
+          <div style="display:flex; alignItems:center; gap:12px">
+            <span style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(26px,2.8vw,34px); color:{{ p.accent }}; lineHeight:1">{{ p.figure }}</span>
+            <span style="height:1px; flex:1; background:{{ p.accent }}; opacity:0.3; display:block"></span>
+          </div>
+          <h2 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:21px; margin:14px 0 0; color:{{ p.dark }}; letterSpacing:-0.005em">{{ p.title }}</h2>
+          <p style="fontSize:14.5px; lineHeight:1.62; color:#54574E; margin:10px 0 0">{{ p.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="maxWidth:1280px; margin:0 auto; padding:clamp(48px,7vw,80px) clamp(18px,4vw,32px) 0">
+    <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(300px, 1fr)); gap:clamp(28px,4vw,56px); alignItems:start">
+      <div>
+        <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#A98750">How it works in practice</div>
+        <h2 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(28px,3.4vw,44px); lineHeight:1.08; margin:14px 0 0; letterSpacing:-0.012em; maxWidth:22ch; textWrap:balance">Notice to the council, not an application</h2>
+        <p style="fontSize:16px; lineHeight:1.66; color:#3D4038; margin:18px 0 0; maxWidth:50ch; textWrap:pretty">An application is something you wait on. A prior notification is something you send. Fourteen days before work starts you tell the local authority what you are putting in, and unless they come back to you, you go ahead.</p>
+        <p style="fontSize:15px; lineHeight:1.66; color:#54574E; margin:14px 0 0; maxWidth:50ch; textWrap:pretty">We give you the dimensions of the unit you are ordering so you have the numbers in front of you when you contact the council. We are not planning consultants and we do not lodge the notice for you.</p>
+      </div>
+      <div>
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+          <div style="borderTop:1px solid rgba(26,28,24,0.16); padding:20px 0; display:flex; gap:18px; alignItems:baseline">
+            <span style="font-family:'Newsreader', Georgia, serif; fontWeight:600; fontSize:28px; color:#A98750; lineHeight:1; flex:0 0 auto">{{ s.no }}</span>
+            <div>
+              <div style="fontSize:16.5px; fontWeight:500; color:#1A1C18">{{ s.title }}</div>
+              <p style="fontSize:14.5px; lineHeight:1.66; color:#54574E; margin:7px 0 0; maxWidth:46ch">{{ s.body }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#23261F; color:#EDEAE2; marginTop:clamp(48px,7vw,80px)">
+    <div style="maxWidth:1280px; margin:0 auto; padding:clamp(52px,7vw,84px) clamp(18px,4vw,32px); display:grid; gridTemplateColumns:repeat(auto-fit, minmax(300px, 1fr)); gap:clamp(28px,4vw,56px); alignItems:start">
+      <div>
+        <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#C9A96B">Read this part too</div>
+        <h2 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(28px,3.6vw,46px); lineHeight:1.08; margin:16px 0 0; letterSpacing:-0.01em">What the exemption does not cover</h2>
+        <p style="fontSize:15.5px; lineHeight:1.66; color:#B4B8AC; margin:18px 0 0; maxWidth:42ch; textWrap:pretty">The exemption is generous but it is not a blank cheque. Your local authority has the final word on your particular site, and we would always rather you heard the limits from us than found them out afterwards.</p>
+      </div>
+      <div>
+        <sc-for list="{{ caveats }}" as="c" hint-placeholder-count="5">
+          <div style="borderTop:1px solid rgba(237,234,226,0.16); padding:19px 0">
+            <div style="fontSize:16.5px; color:#EDEAE2; fontWeight:500">{{ c.title }}</div>
+            <p style="fontSize:14.5px; lineHeight:1.66; color:#9BA093; margin:7px 0 0; maxWidth:50ch">{{ c.body }}</p>
+          </div>
+        </sc-for>
+        <p style="fontSize:13.5px; lineHeight:1.66; color:#8D9186; margin:22px 0 0; maxWidth:50ch">General guidance on planning in Ireland is on <a href="https://www.citizensinformation.ie/en/housing/planning-permission/" target="_blank" rel="noopener" style="color:#C9A96B; textDecoration:underline">Citizens Information</a>. For your own site, the only answer that counts comes from your local authority.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="maxWidth:1280px; margin:0 auto; padding:clamp(48px,7vw,80px) clamp(18px,4vw,32px)">
+    <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(260px, 1fr)); gap:clamp(20px,3vw,32px)">
+      <a href="range.html" style="border:1px solid rgba(26,28,24,0.14); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
+        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#A98750">Sized for it</div>
+        <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:26px; marginTop:12px">Units built to the band</div>
+        <p style="fontSize:14.5px; color:#54574E; margin:10px 0 0; lineHeight:1.6">Granny flats and larger pods at 32 to 45 m², garden offices up to 30.</p>
+      </a>
+      <a href="faq.html" style="border:1px solid rgba(26,28,24,0.14); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
+        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#A98750">More answers</div>
+        <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:26px; marginTop:12px">Questions we get</div>
+        <p style="fontSize:14.5px; color:#54574E; margin:10px 0 0; lineHeight:1.6">Letting, delivery, warranty, connections and cost.</p>
+      </a>
+      <a href="visit.html" style="border:1px solid rgba(26,28,24,0.14); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
+        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#A98750">Bring your site</div>
+        <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:26px; marginTop:12px">Come and ask us</div>
+        <p style="fontSize:14.5px; color:#54574E; margin:10px 0 0; lineHeight:1.6">Ennis, Monday to Saturday, 10am to 4pm.</p>
+      </a>
+    </div>
+  </section>
+
+  <dc-import name="footer" hint-size="100%,300px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const A = { brass: "#A98750", olive: "#5C6B4A", clay: "#A9603F", slate: "#4A5A63" };
+    const D = { brass: "#6E5628", olive: "#3D4A2F", clay: "#7A3F26", slate: "#2E3C44" };
+    const T = { brass: "#F7F2E8", olive: "#F0F3EA", clay: "#F9EFE9", slate: "#EDF1F3" };
+
+    const planning = [
+      ["32–45 m²", "A dwelling in the back garden", "Detached, single storey, habitable. The band our granny flats and larger pods are built to.", "brass"],
+      ["14 days", "Notice, not an application", "A prior notification to the council before work starts. Nothing to wait on.", "olive"],
+      ["30 m²", "Garden structure", "Shed, store, office or gym, up from 25 m². Covers the garden office range.", "clay"],
+      ["32 m² min", "Splitting your own house", "One extra self-contained unit inside the existing walls.", "slate"]
+    ].map(([figure, title, body, key]) => ({ figure, title, body, accent: A[key], dark: D[key], tint: T[key] }));
+
+    const steps = [
+      { no: "01", title: "Measure the spot", body: "Where the unit would sit, how far off the boundary, and how a lorry and crane would reach it. Bring those numbers to us." },
+      { no: "02", title: "Settle the unit and the size", body: "We confirm the footprint and the floor area of the unit you are ordering, in writing, so the figures you quote are the real ones." },
+      { no: "03", title: "Send the notice", body: "You give your local authority fourteen days notice before work starts. If nothing comes back, you go ahead." },
+      { no: "04", title: "Base, then delivery", body: "A level base that will take close to twelve tonnes, with power and water run to the spot. Then we deliver." }
+    ];
+
+    const caveats = [
+      { title: "Anything outside the sizes needs full permission", body: "Over 45 m², two storeys, or a unit that is not detached and single storey, and you are back to a normal planning application." },
+      { title: "Building and Fire Regulations always apply", body: "The exemption is about planning permission. It does not remove the regulations that govern how the unit is built and how it performs." },
+      { title: "Your site decides", body: "Where the unit sits, what it is used for, and what else is already in the garden all matter. Protected structures, flood zones and shared boundaries change the answer." },
+      { title: "Short term letting is a separate question", body: "Whether you can list it depends on local short term letting rules and on what your local authority says about the use. Check before you advertise it." },
+      { title: "We do not decide any of it", body: "We are not planning consultants. We give you accurate dimensions and you get the answer from the council that covers your address." }
+    ];
+
+    return { planning, steps, caveats };
+  }
+}
+
+</script>
+</body>
+</html>

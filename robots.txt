@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kilrushventures.ie/sitemap.xml

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Showroom in Ennis, Co. Clare — walk through the units | Kilrush Ventures</title>
+<meta name="description" content="Our modular homes and garden units stand on the floor at Quin Road Business Park, Ennis, Co. Clare. Open Monday to Saturday, 10am to 4pm, walk in without an appointment.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #F1EDE6; color: #1A1C18; font-family: "Manrope", ui-sans-serif, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #1A1C18; text-decoration: none; }
+  a:hover { color: #A98750; }
+  img { max-width: 100%; }
+</style>
+</helmet>
+
+<div style="background:#F1EDE6; color:#1A1C18; fontFamily:'Manrope', system-ui, sans-serif; overflow-x:hidden">
+
+  <dc-import name="header" hint-size="100%,64px"></dc-import>
+
+  <section style="maxWidth:1280px; margin:0 auto; padding:clamp(40px,6vw,72px) clamp(18px,4vw,32px) 0">
+    <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#A98750">Quin Road Business Park, Ennis</div>
+    <h1 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(36px,6vw,74px); lineHeight:1.04; letterSpacing:-0.015em; margin:16px 0 0; maxWidth:20ch; textWrap:balance">Real units on a floor, not renderings</h1>
+    <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(320px, 1fr)); gap:clamp(22px,4vw,48px); alignItems:end; marginTop:clamp(20px,3vw,30px)">
+      <p style="fontSize:clamp(16px,1.6vw,18px); lineHeight:1.64; color:#33362F; margin:0; maxWidth:54ch; textWrap:pretty">The comment we get most is that a showroom this size cannot be in Ireland. It is Ennis, two minutes outside the town. Walk in Monday to Saturday between 10 and 4, open the doors, stand in the kitchens, and see what the finish is actually like before you commit to anything.</p>
+      <div style="display:flex; gap:12px; flexWrap:wrap">
+        <a href="visit.html" style="background:#1A1C18; color:#F1EDE6; padding:16px 26px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="background:#A98750; color:#1A1C18">Directions and hours</a>
+        <a href="tel:+353874354655" style="border:1px solid rgba(26,28,24,0.28); color:#1A1C18; padding:16px 26px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="borderColor:#1A1C18; background:rgba(26,28,24,0.04)">Ring ahead</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="maxWidth:1280px; margin:0 auto; padding:clamp(28px,4vw,44px) clamp(18px,4vw,32px) 0">
+    <figure style="margin:0; position:relative; overflow:hidden; background:#E6E0D5; height:clamp(300px,52vw,560px); border:1px solid rgba(26,28,24,0.1)">
+      <img src="assets/custom-pod-1600.webp" srcset="assets/custom-pod-900.webp 900w, assets/custom-pod-1600.webp 1600w" sizes="100vw" alt="Custom pod home with a gloss shell and lit wraparound glazing" loading="eager" fetchpriority="high" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; objectFit:cover; display:block">
+      <figcaption style="position:absolute; left:0; right:0; bottom:0; padding:20px clamp(18px,3vw,28px); color:#F1EDE6; background:linear-gradient(to top, rgba(26,28,24,0.78), transparent); pointerEvents:none">
+        <div style="fontSize:10.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#C9A96B">Custom pod home</div>
+        <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(20px,2.4vw,30px); marginTop:6px; letterSpacing:-0.01em">Gloss shell, lit glazing, keypad entry</div>
+      </figcaption>
+    </figure>
+
+    <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap:14px; marginTop:14px">
+      <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="5">
+        <figure style="margin:0; position:relative; overflow:hidden; background:#E6E0D5; height:clamp(240px,26vw,330px); border:1px solid rgba(26,28,24,0.1)">
+          <img src="{{ g.src }}" srcset="{{ g.srcset }}" sizes="(max-width: 760px) 100vw, 33vw" alt="{{ g.alt }}" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; objectFit:cover; display:block">
+          <figcaption style="position:absolute; left:0; right:0; bottom:0; padding:14px 16px; fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#F1EDE6; background:linear-gradient(to top, rgba(26,28,24,0.74), transparent); pointerEvents:none">{{ g.cap }}</figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:#1A1C18; color:#EDEAE2; marginTop:clamp(48px,7vw,80px)">
+    <div style="maxWidth:1280px; margin:0 auto; padding:clamp(52px,7vw,84px) clamp(18px,4vw,32px); display:grid; gridTemplateColumns:repeat(auto-fit, minmax(300px, 1fr)); gap:clamp(28px,4vw,56px); alignItems:start">
+      <div>
+        <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#C9A96B">Worth doing before you buy</div>
+        <h2 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(28px,3.6vw,46px); lineHeight:1.08; margin:16px 0 0; letterSpacing:-0.01em">What to look at while you are here</h2>
+        <p style="fontSize:15.5px; lineHeight:1.66; color:#B4B8AC; margin:18px 0 0; maxWidth:42ch; textWrap:pretty">Nothing on this site is sold online. Everything is decided standing in front of the unit, which suits both of us. Bring the dimensions of the spot you have in mind and we will tell you what fits.</p>
+      </div>
+      <div>
+        <sc-for list="{{ checks }}" as="c" hint-placeholder-count="5">
+          <div style="borderTop:1px solid rgba(237,234,226,0.16); padding:20px 0">
+            <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(20px,2.1vw,25px); color:#EDEAE2; letterSpacing:-0.005em">{{ c.title }}</div>
+            <p style="fontSize:14.5px; lineHeight:1.66; color:#9BA093; margin:8px 0 0; maxWidth:50ch">{{ c.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="maxWidth:1280px; margin:0 auto; padding:clamp(48px,7vw,80px) clamp(18px,4vw,32px)">
+    <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(260px, 1fr)); gap:clamp(20px,3vw,32px)">
+      <a href="range.html" style="border:1px solid rgba(26,28,24,0.14); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
+        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#A98750">Read up first</div>
+        <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:26px; marginTop:12px">The six families of unit</div>
+        <p style="fontSize:14.5px; color:#54574E; margin:10px 0 0; lineHeight:1.6">What each one is for, and what comes as standard.</p>
+      </a>
+      <a href="planning.html" style="border:1px solid rgba(26,28,24,0.14); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
+        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#A98750">Before you order</div>
+        <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:26px; marginTop:12px">The planning rules</div>
+        <p style="fontSize:14.5px; color:#54574E; margin:10px 0 0; lineHeight:1.6">What changed in July 2026 and which sizes are exempt.</p>
+      </a>
+      <a href="visit.html" style="border:1px solid rgba(26,28,24,0.14); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
+        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#A98750">Come out</div>
+        <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:26px; marginTop:12px">Where we are</div>
+        <p style="fontSize:14.5px; color:#54574E; margin:10px 0 0; lineHeight:1.6">Map, Eircode, opening hours and the phone number.</p>
+      </a>
+    </div>
+  </section>
+
+  <dc-import name="footer" hint-size="100%,300px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      gallery: [
+        { slot: "kv-s2", src: "assets/expanding-home-1600.webp", srcset: "assets/expanding-home-900.webp 900w, assets/expanding-home-1600.webp 1600w", alt: "Expanding home, stone clad with bi-fold glazing", cap: "Expanding home" },
+        { slot: "kv-s6", src: "assets/granny-flat-1600.webp", srcset: "assets/granny-flat-900.webp 900w, assets/granny-flat-1600.webp 1600w", alt: "Granny flat with sliding glass doors and a fitted kitchen", cap: "Granny flat" },
+        { slot: "kv-s3", src: "assets/capsule-pod-v2-1600.webp", srcset: "assets/capsule-pod-v2-900.webp 900w, assets/capsule-pod-v2-1600.webp 1600w", alt: "Capsule pod home with lit octagonal glazing", cap: "Capsule pod" },
+        { slot: "kv-s4", src: "assets/garden-office-v2-1600.webp", srcset: "assets/garden-office-v2-900.webp 900w, assets/garden-office-v2-1600.webp 1600w", alt: "White glazed garden office pod, full height window, at the Ennis yard", cap: "Garden office" },
+        { slot: "kv-s5", src: "assets/site-unit-1600.webp", srcset: "assets/site-unit-900.webp 900w, assets/site-unit-1600.webp 1600w", alt: "Container site units, one fitted with a serving hatch", cap: "Site & shop units" }
+      ],
+      checks: [
+        { title: "Open the bathroom door", body: "The bathroom is finished before the unit leaves us, tiling, fittings, touch mirror and all. It is the fastest way to judge the level of finish across the whole range." },
+        { title: "Stand in the kitchen", body: "Fitted as standard. Look at the run of worktop and decide whether the layout suits how you would actually use the space." },
+        { title: "Ask about the heating", body: "Underfloor heating and air conditioning in every unit, with 75 mm of insulation through the walls, floor and ceiling." },
+        { title: "Feel the cladding", body: "Alloy cladding in any colour you want, and other finishes on the floor to compare. Photographs flatten the difference between them." },
+        { title: "Bring your measurements", body: "The width of the access, the gap between the house and the boundary, and where the power and water are. Those three numbers decide most of it." }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>

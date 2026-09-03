@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Questions we get — cost, delivery, planning, warranty | Kilrush Ventures, Ennis</title>
+<meta name="description" content="Straight answers on what a modular unit costs, what comes as standard, free Munster delivery, the 50 year warranty, site access, connections and the 2026 planning exemption.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #F1EDE6; color: #1A1C18; font-family: "Manrope", ui-sans-serif, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #1A1C18; text-decoration: none; }
+  a:hover { color: #A98750; }
+</style>
+</helmet>
+
+<div style="background:#F1EDE6; color:#1A1C18; fontFamily:'Manrope', system-ui, sans-serif; overflow-x:hidden">
+
+  <dc-import name="header" hint-size="100%,64px"></dc-import>
+
+  <section style="maxWidth:1280px; margin:0 auto; padding:clamp(40px,6vw,72px) clamp(18px,4vw,32px) 0">
+    <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#A98750">Before you ask</div>
+    <h1 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(36px,6vw,74px); lineHeight:1.04; letterSpacing:-0.015em; margin:16px 0 0; maxWidth:16ch; textWrap:balance">Questions we get</h1>
+    <p style="fontSize:clamp(16px,1.6vw,18px); lineHeight:1.64; color:#33362F; margin:20px 0 0; maxWidth:54ch; textWrap:pretty">Everything below is what we would tell you standing on the floor in Ennis. Anything not covered here, ring 087 435 4655 between 10 and 4, Monday to Saturday.</p>
+  </section>
+
+  <section style="maxWidth:1280px; margin:0 auto; padding:clamp(32px,4vw,52px) clamp(18px,4vw,32px) 0">
+    <sc-for list="{{ groups }}" as="g" hint-placeholder-count="5">
+      <div style="borderTop:1px solid rgba(26,28,24,0.18); paddingTop:clamp(22px,2.6vw,30px); paddingBottom:clamp(28px,3.4vw,44px); display:grid; gridTemplateColumns:repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap:clamp(20px,3vw,48px); alignItems:start">
+        <div>
+          <h2 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(24px,2.8vw,34px); margin:0; letterSpacing:-0.01em; color:{{ g.dark }}">{{ g.name }}</h2>
+          <div style="height:2px; width:44px; background:{{ g.accent }}; marginTop:14px"></div>
+        </div>
+        <div style="gridColumn:{{ g.span }}">
+          <sc-for list="{{ g.items }}" as="item" hint-placeholder-count="3">
+            <div style="paddingBottom:22px">
+              <h3 style="fontSize:17px; fontWeight:600; margin:0; color:#1A1C18; letterSpacing:0.005em">{{ item.q }}</h3>
+              <p style="fontSize:15.5px; lineHeight:1.7; color:#454842; margin:9px 0 0; maxWidth:70ch; textWrap:pretty">{{ item.a }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+  </section>
+
+  <section style="background:#1A1C18; color:#EDEAE2; marginTop:clamp(24px,4vw,40px)">
+    <div style="maxWidth:1280px; margin:0 auto; padding:clamp(48px,6vw,76px) clamp(18px,4vw,32px); display:grid; gridTemplateColumns:repeat(auto-fit, minmax(300px, 1fr)); gap:clamp(26px,4vw,48px); alignItems:center">
+      <div>
+        <h2 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(28px,3.4vw,44px); lineHeight:1.08; margin:0; letterSpacing:-0.012em; maxWidth:22ch; textWrap:balance">Still not answered? Ring us, it is quicker.</h2>
+        <p style="fontSize:15.5px; lineHeight:1.66; color:#B4B8AC; margin:16px 0 0; maxWidth:46ch">We answer the phone ourselves between 10 and 4, Monday to Saturday. The same number takes WhatsApp if you would rather send a photo of the spot you have in mind.</p>
+      </div>
+      <div style="display:flex; gap:12px; flexWrap:wrap">
+        <a href="tel:+353874354655" style="background:#C9A96B; color:#1A1C18; padding:16px 28px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="background:#F1EDE6; color:#1A1C18">Call 087 435 4655</a>
+        <a href="https://wa.me/353874354655" target="_blank" rel="noopener" style="border:1px solid rgba(237,234,226,0.35); color:#EDEAE2; padding:16px 28px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="borderColor:#EDEAE2; background:rgba(237,234,226,0.08); color:#EDEAE2">WhatsApp</a>
+        <a href="visit.html" style="border:1px solid rgba(237,234,226,0.35); color:#EDEAE2; padding:16px 28px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="borderColor:#EDEAE2; background:rgba(237,234,226,0.08); color:#EDEAE2">Visit the showroom</a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="footer" hint-size="100%,300px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const items = this.faqList().map(([q, a]) => ({
+      "@type": "Question", name: q,
+      acceptedAnswer: { "@type": "Answer", text: a }
+    }));
+    const s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.id = "kv-faq-ld";
+    s.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: items });
+    if (!document.getElementById("kv-faq-ld")) document.head.appendChild(s);
+  }
+
+  faqList() {
+    return this.groupData().flatMap(g => g.items);
+  }
+
+  groupData() {
+    return [
+      { name: "Cost", key: "brass", items: [
+        ["What does one cost?", "Models start from €8,000 plus VAT. Beyond that it comes down to size, layout and finish, and because every unit is built to what you ask for there is no single price list. Ring us with the space you have in mind and we will give you a figure."],
+        ["Is it really cheaper than building?", "For the same square metres, yes, and by a distance. The unit is finished before it arrives, so you are not paying for a year of trades, scaffolding and weather. Your outlay on site is the base, the connections and the delivery."],
+        ["How do payments work?", "A custom unit takes a 50% deposit up front. There are no stage payments after that, so the balance is settled around delivery rather than drip fed through the job."],
+        ["Could it pay for itself?", "Owners letting short-stay have seen around €20,000 a year, though that depends entirely on the location, the season and how you run it. Treat it as what is possible in a good spot, not a forecast for yours."]
+      ]},
+      { name: "The units", key: "olive", items: [
+        ["Do I have to fit it out myself?", "No. The fitted kitchen, fully finished bathroom, underfloor heating, air conditioning, flooring, decking, bed, touch mirrors, blinds and electric curtains are all in as standard. What else you put in it is your business."],
+        ["Can I change the layout?", "Yes. The published sizes are a starting point and the build is fully custom, so the dimensions, the room count and the window positions follow what you want. A fully custom unit takes three months from order."],
+        ["What is the warranty?", "Fifty years on the unit. If something goes wrong we come out and repair it."],
+        ["Can it be moved or sold on later?", "It can. The unit can be lifted and moved again, or sold on, which is more than you can say for a block extension."],
+        ["What is it clad in?", "Alloy cladding, in any colour you want. Other finishes are on the floor in the showroom and are worth comparing in person, because photographs flatten the difference between them."],
+        ["Can it run off grid?", "It can be specified to run completely off the grid, which suits sites with no services at the spot."]
+      ]},
+      { name: "Delivery and your site", key: "clay", items: [
+        ["Is delivery included?", "Anywhere in Munster, yes, free. Outside Munster we will price the run for you. We deliver on our own crane truck, so the unit goes onto the base without a third party in the middle."],
+        ["What if a crane cannot reach the spot?", "Then we cannot deliver, and it is better to know that at the start. Lifting over a wall or into a tight garden is possible but it is arranged separately and costs extra. The access has to be viable before anything else matters."],
+        ["What do I need ready before delivery?", "A level base that will take the load, because the unit weighs close to twelve tonnes. Room for a lorry and a crane to get in, and power and water waiting at the spot."],
+        ["Who connects the water and electrics?", "The unit arrives wired throughout and plumbed ready for water. Bringing power, water and waste to the spot and making the final connections is handled by your own tradesmen."],
+        ["How long does it take?", "Three months from order on a fully custom unit. Some units are on the floor already and can go a good deal sooner, so it is worth asking what is in stock this week."]
+      ]},
+      { name: "Planning and letting", key: "slate", items: [
+        ["Do I need planning permission?", "Often not any more. Since 27 July 2026 a detached habitable dwelling of 32 to 45 m² in your back garden is exempted development, along with garden structures up to 30 m². It still depends on the size, the use and where it sits on your site, and Building and Fire Regulations always apply. Your local authority decides, and we will give you the dimensions you need to go and ask them."],
+        ["Do you lodge the notice or supply drawings?", "We give you the accurate dimensions of the unit you are ordering so you have the right figures in front of you. We are not planning consultants and we do not lodge the fourteen day notice for you."],
+        ["Can I let it out on Airbnb?", "Plenty of owners do, and a finished unit in a good spot books through the season. Short term letting rules vary by area and by what your local authority says about the use, so check before you list it. We do not supply short term letting registration paperwork."]
+      ]},
+      { name: "Talking to us", key: "brass", items: [
+        ["Is that showroom really in Ireland?", "It is. The scale of it is what throws people. Block 4, Unit 5, Quin Road Business Park, Ennis, Co. Clare, V95 W63A. Drive out and settle the argument."],
+        ["Do I need an appointment?", "No. Walk in any time between 10 and 4, Monday to Saturday."],
+        ["Can I ring you rather than email?", "Please do. We answer the phone between 10 and 4, Monday to Saturday, on 087 435 4655, and the same number takes WhatsApp. Email is not the way to reach us."],
+        ["Do you have units in Ireland already?", "We do, and more going in. Photographs of installed units go up here as owners give us permission to use them."]
+      ]}
+    ];
+  }
+
+  renderVals() {
+    const A = { brass: "#A98750", olive: "#5C6B4A", clay: "#A9603F", slate: "#4A5A63" };
+    const D = { brass: "#6E5628", olive: "#3D4A2F", clay: "#7A3F26", slate: "#2E3C44" };
+    return {
+      groups: this.groupData().map(g => ({
+        name: g.name,
+        accent: A[g.key],
+        dark: D[g.key],
+        span: "auto",
+        items: g.items.map(([q, a]) => ({ q, a }))
+      }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>
