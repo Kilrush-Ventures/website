@@ -26,7 +26,7 @@
   <dc-import name="header" hint-size="100%,64px"></dc-import>
 
   <section style="maxWidth:1280px; margin:0 auto; padding:clamp(40px,6vw,72px) clamp(18px,4vw,32px) 0">
-    <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#A98750">New rules, since 27 July 2026</div>
+    <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#6E5628">New rules, since 27 July 2026</div>
     <h1 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(36px,6vw,74px); lineHeight:1.04; letterSpacing:-0.015em; margin:16px 0 0; maxWidth:19ch; textWrap:balance">The planning rules moved in your favour</h1>
     <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(320px, 1fr)); gap:clamp(22px,4vw,48px); alignItems:end; marginTop:clamp(20px,3vw,30px)">
       <p style="fontSize:clamp(16px,1.6vw,18px); lineHeight:1.64; color:#33362F; margin:0; maxWidth:54ch; textWrap:pretty">The first real change in almost twenty five years. A habitable dwelling can now go in the back garden of a house in Ireland without a planning application, and the units we build are sized to sit inside that band.</p>
@@ -48,19 +48,42 @@
         </div>
       </sc-for>
     </div>
+
+    <div style="marginTop:clamp(28px,3.6vw,40px); border:1px solid rgba(26,28,24,0.16); background:#FAF8F4; padding:clamp(24px,3vw,34px)">
+      <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#6E5628">Before and after, to scale</div>
+      <div style="display:grid; gap:clamp(18px,2.4vw,26px); marginTop:20px">
+        <sc-for list="{{ compare }}" as="c" hint-placeholder-count="2">
+          <div>
+            <div style="display:flex; justifyContent:space-between; alignItems:baseline; fontSize:13.5px; fontWeight:600; color:#1A1C18"><span>{{ c.label }}</span></div>
+            <div style="display:flex; alignItems:center; gap:14px; marginTop:8px">
+              <div style="fontSize:12px; color:#54574E; width:64px; flex:0 0 auto">{{ c.beforeLabel }}</div>
+              <div style="flex:1; height:14px; background:rgba(26,28,24,0.08); position:relative">
+                <div style="height:100%; width:{{ c.beforeW }}; background:rgba(26,28,24,0.28)"></div>
+              </div>
+            </div>
+            <div style="display:flex; alignItems:center; gap:14px; marginTop:7px">
+              <div style="fontSize:12px; color:#6E5628; fontWeight:600; width:64px; flex:0 0 auto">{{ c.afterLabel }}</div>
+              <div style="flex:1; height:14px; background:rgba(26,28,24,0.08); position:relative">
+                <div style="height:100%; width:{{ c.afterW }}; background:#A98750"></div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
   </section>
 
   <section style="maxWidth:1280px; margin:0 auto; padding:clamp(48px,7vw,80px) clamp(18px,4vw,32px) 0">
     <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(300px, 1fr)); gap:clamp(28px,4vw,56px); alignItems:start">
       <div>
-        <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#A98750">How it works in practice</div>
+        <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#6E5628">How it works in practice</div>
         <h2 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(28px,3.4vw,44px); lineHeight:1.08; margin:14px 0 0; letterSpacing:-0.012em; maxWidth:22ch; textWrap:balance">Notice to the council, not an application</h2>
         <p style="fontSize:16px; lineHeight:1.66; color:#3D4038; margin:18px 0 0; maxWidth:50ch; textWrap:pretty">An application is something you wait on. A prior notification is something you send. Fourteen days before work starts you tell the local authority what you are putting in, and unless they come back to you, you go ahead.</p>
         <p style="fontSize:15px; lineHeight:1.66; color:#54574E; margin:14px 0 0; maxWidth:50ch; textWrap:pretty">We give you the dimensions of the unit you are ordering so you have the numbers in front of you when you contact the council. We are not planning consultants and we do not lodge the notice for you.</p>
       </div>
       <div>
         <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
-          <div style="borderTop:1px solid rgba(26,28,24,0.16); padding:20px 0; display:flex; gap:18px; alignItems:baseline">
+          <div style="borderTop:2px solid #1A1C18; padding:20px 0; display:flex; gap:18px; alignItems:baseline">
             <span style="font-family:'Newsreader', Georgia, serif; fontWeight:600; fontSize:28px; color:#A98750; lineHeight:1; flex:0 0 auto">{{ s.no }}</span>
             <div>
               <div style="fontSize:16.5px; fontWeight:500; color:#1A1C18">{{ s.title }}</div>
@@ -76,8 +99,31 @@
     <div style="maxWidth:1280px; margin:0 auto; padding:clamp(52px,7vw,84px) clamp(18px,4vw,32px); display:grid; gridTemplateColumns:repeat(auto-fit, minmax(300px, 1fr)); gap:clamp(28px,4vw,56px); alignItems:start">
       <div>
         <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#C9A96B">Read this part too</div>
-        <h2 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(28px,3.6vw,46px); lineHeight:1.08; margin:16px 0 0; letterSpacing:-0.01em">What the exemption does not cover</h2>
+        <h2 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(28px,3.6vw,46px); lineHeight:1.08; margin:16px 0 0; letterSpacing:-0.01em; color:#C9A96B">What the exemption does not cover</h2>
         <p style="fontSize:15.5px; lineHeight:1.66; color:#B4B8AC; margin:18px 0 0; maxWidth:42ch; textWrap:pretty">The exemption is generous but it is not a blank cheque. Your local authority has the final word on your particular site, and we would always rather you heard the limits from us than found them out afterwards.</p>
+
+        <div style="marginTop:clamp(32px,4vw,48px); border:1px solid rgba(237,234,226,0.16); padding:clamp(20px,2.4vw,26px)">
+          <svg viewBox="0 0 400 300" style="width:100%; height:auto; display:block" role="img" aria-label="Site plan diagram showing an existing house, the garden boundary, and a new unit set back from it">
+            <rect x="16" y="16" width="368" height="268" fill="none" stroke="#EDEAE2" stroke-opacity="0.3" stroke-width="1.5" stroke-dasharray="5 5"></rect>
+            <text x="24" y="298" font-family="Manrope, sans-serif" font-size="10.5" letter-spacing="0.08em" fill="#8D9186">SITE BOUNDARY</text>
+
+            <rect x="42" y="38" width="150" height="92" fill="none" stroke="#EDEAE2" stroke-opacity="0.55" stroke-width="1.5"></rect>
+            <text x="52" y="60" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#D8DAD1">Your house</text>
+
+            <rect x="234" y="158" width="122" height="90" fill="rgba(201,169,107,0.1)" stroke="#C9A96B" stroke-width="2"></rect>
+            <text x="246" y="182" font-family="Newsreader, Georgia, serif" font-size="14" fill="#F1EDE6">New unit</text>
+            <text x="246" y="200" font-family="Manrope, sans-serif" font-size="11.5" fill="#C9A96B">32–45 m², single storey</text>
+
+            <line x1="356" y1="158" x2="384" y2="158" stroke="#9BA093" stroke-width="1"></line>
+            <line x1="356" y1="248" x2="384" y2="248" stroke="#9BA093" stroke-width="1"></line>
+            <line x1="380" y1="158" x2="380" y2="248" stroke="#9BA093" stroke-width="1"></line>
+            <text x="386" y="207" font-family="Manrope, sans-serif" font-size="10" fill="#8D9186" text-anchor="middle" transform="rotate(90 386 207)">SETBACK</text>
+
+            <line x1="234" y1="204" x2="192" y2="130" stroke="#9BA093" stroke-width="1" stroke-dasharray="3 4"></line>
+            <text x="184" y="148" font-family="Manrope, sans-serif" font-size="10" fill="#8D9186">DETACHED FROM THE HOUSE</text>
+          </svg>
+          <div style="fontSize:11.5px; color:#8D9186; marginTop:12px; lineHeight:1.5">Schematic only — your own boundary distances and site layout are confirmed with your local authority.</div>
+        </div>
       </div>
       <div>
         <sc-for list="{{ caveats }}" as="c" hint-placeholder-count="5">
@@ -91,23 +137,49 @@
     </div>
   </section>
 
-  <section style="maxWidth:1280px; margin:0 auto; padding:clamp(48px,7vw,80px) clamp(18px,4vw,32px)">
+  <section style="maxWidth:1280px; margin:0 auto; padding:clamp(48px,7vw,80px) clamp(18px,4vw,32px) 0">
+    <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(300px, 1fr)); gap:clamp(28px,4vw,56px); alignItems:center">
+      <div>
+        <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#6E5628">Once the notice is in</div>
+        <h2 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(28px,3.4vw,44px); lineHeight:1.08; margin:14px 0 0; letterSpacing:-0.012em; maxWidth:22ch; textWrap:balance">Delivery, straight onto the base</h2>
+        <p style="fontSize:16px; lineHeight:1.66; color:#3D4038; margin:18px 0 0; maxWidth:50ch; textWrap:pretty">We deliver on our own crane truck, so the unit goes from the lorry onto the base without a third party in the middle. Anywhere in Munster is free. Beyond that we price the run before you commit to anything.</p>
+        <p style="fontSize:15px; lineHeight:1.66; color:#54574E; margin:14px 0 0; maxWidth:50ch; textWrap:pretty">What we need ready on your side: a level base that will take close to twelve tonnes, room for a lorry and a crane to get in, and power and water run to the spot. Lifting over a wall or into a tight garden is possible, but it is arranged separately and costs extra.</p>
+      </div>
+      <div>
+        <div style="position:relative; overflow:hidden; border:1px solid rgba(26,28,24,0.16); background:#1A1C18">
+          <img src="assets/planning-delivery-preview.webp" alt="Customer preview showing a proposed unit's real-scale outline placed in a back garden, with dimensions labelled" loading="lazy" decoding="async" style="width:100%; height:auto; display:block">
+        </div>
+        <div style="fontSize:12px; color:#6B6E64; marginTop:10px">Illustrative — actual placement depends on your site.</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#DCD2BF; borderTop:2px solid #1A1C18; borderBottom:2px solid #1A1C18">
+    <div style="maxWidth:1280px; margin:0 auto; padding:clamp(48px,7vw,80px) clamp(18px,4vw,32px)">
     <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(260px, 1fr)); gap:clamp(20px,3vw,32px)">
-      <a href="range.html" style="border:1px solid rgba(26,28,24,0.14); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
-        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#A98750">Sized for it</div>
+      <a href="range.html" style="border:1px solid rgba(26,28,24,0.24); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
+        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#6E5628">Sized for it</div>
         <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:26px; marginTop:12px">Units built to the band</div>
         <p style="fontSize:14.5px; color:#54574E; margin:10px 0 0; lineHeight:1.6">Granny flats and larger pods at 32 to 45 m², garden offices up to 30.</p>
       </a>
-      <a href="faq.html" style="border:1px solid rgba(26,28,24,0.14); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
-        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#A98750">More answers</div>
+      <a href="faq.html" style="border:1px solid rgba(26,28,24,0.24); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
+        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#6E5628">More answers</div>
         <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:26px; marginTop:12px">Questions we get</div>
         <p style="fontSize:14.5px; color:#54574E; margin:10px 0 0; lineHeight:1.6">Letting, delivery, warranty, connections and cost.</p>
       </a>
-      <a href="visit.html" style="border:1px solid rgba(26,28,24,0.14); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
-        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#A98750">Bring your site</div>
+      <a href="visit.html" style="border:1px solid rgba(26,28,24,0.24); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
+        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#6E5628">Bring your site</div>
         <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:26px; marginTop:12px">Come and ask us</div>
         <p style="fontSize:14.5px; color:#54574E; margin:10px 0 0; lineHeight:1.6">Ennis, Monday to Saturday, 10am to 4pm.</p>
       </a>
+    </div>
+  </div>
+  </section>
+
+  <section style="maxWidth:1280px; margin:0 auto; padding:clamp(28px,3vw,36px) clamp(18px,4vw,32px) 0">
+    <div style="background:#F7F2E8; borderLeft:3px solid #A98750; padding:18px 22px">
+      <div style="fontSize:11px; fontWeight:700; letterSpacing:0.12em; textTransform:uppercase; color:#6E5628">Please note</div>
+      <p style="fontSize:14px; lineHeight:1.6; color:#454842; margin:8px 0 0; maxWidth:70ch">Information on this page is accurate as of {{ todayStr }}. Planning law changes, and rules can vary by local authority. Please check with your own local authority before making any decisions based on this page.</p>
     </div>
   </section>
 
@@ -136,15 +208,20 @@ class Component extends DCLogic {
       { no: "04", title: "Base, then delivery", body: "A level base that will take close to twelve tonnes, with power and water run to the spot. Then we deliver." }
     ];
 
-    const caveats = [
-      { title: "Anything outside the sizes needs full permission", body: "Over 45 m², two storeys, or a unit that is not detached and single storey, and you are back to a normal planning application." },
+    const caveats = [      { title: "Anything outside the sizes needs full permission", body: "Over 45 m², two storeys, or a unit that is not detached and single storey, and you are back to a normal planning application." },
       { title: "Building and Fire Regulations always apply", body: "The exemption is about planning permission. It does not remove the regulations that govern how the unit is built and how it performs." },
       { title: "Your site decides", body: "Where the unit sits, what it is used for, and what else is already in the garden all matter. Protected structures, flood zones and shared boundaries change the answer." },
       { title: "Short term letting is a separate question", body: "Whether you can list it depends on local short term letting rules and on what your local authority says about the use. Check before you advertise it." },
       { title: "We do not decide any of it", body: "We are not planning consultants. We give you accurate dimensions and you get the answer from the council that covers your address." }
     ];
 
-    return { planning, steps, caveats };
+    const compare = [
+      { label: "Garden structure (shed, office, store)", beforeLabel: "Was 25 m²", beforeW: "42%", afterLabel: "Now 30 m²", afterW: "50%" },
+      { label: "Habitable dwelling in the back garden", beforeLabel: "Not exempt", beforeW: "6%", afterLabel: "Now 32–45 m²", afterW: "75%" }
+    ];
+
+    const todayStr = new Date().toLocaleDateString("en-IE", { day: "numeric", month: "long", year: "numeric" });
+    return { planning, steps, caveats, compare, todayStr };
   }
 }
 

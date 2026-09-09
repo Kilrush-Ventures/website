@@ -27,10 +27,10 @@
   <dc-import name="header" hint-size="100%,64px"></dc-import>
 
   <section style="maxWidth:1280px; margin:0 auto; padding:clamp(40px,6vw,72px) clamp(18px,4vw,32px) 0">
-    <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#A98750">Six families of unit</div>
+    <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#6E5628">Six kinds of unit</div>
     <h1 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(36px,6vw,74px); lineHeight:1.04; letterSpacing:-0.015em; margin:16px 0 0; maxWidth:18ch; textWrap:balance">The range, and what each one is for</h1>
     <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(320px, 1fr)); gap:clamp(22px,4vw,48px); alignItems:end; marginTop:clamp(20px,3vw,30px)">
-      <p style="fontSize:clamp(16px,1.6vw,18px); lineHeight:1.64; color:#33362F; margin:0; maxWidth:54ch; textWrap:pretty">Every unit is built off site and arrives finished, with the kitchen, bathroom, heating and wiring already in. Base sizes are a starting point. The build is custom, so the dimensions and the layout follow what your site will take.</p>
+      <p style="fontSize:clamp(16px,1.6vw,18px); lineHeight:1.64; color:#33362F; margin:0; maxWidth:54ch; textWrap:pretty">Some units are already built and ready to go. Others are made to order, sized and laid out to suit your site, which takes around three months from order to delivery. Either way it arrives off site and finished, with the kitchen, bathroom, heating and wiring already in.</p>
       <div style="display:flex; alignItems:flex-end; gap:clamp(16px,3vw,28px); flexWrap:wrap">
         <a href="visit.html" style="background:#1A1C18; color:#F1EDE6; padding:16px 26px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="background:#A98750; color:#1A1C18">Come and walk through them</a>
         <a href="uploads/CS-Modular-House-Catalog.pdf" target="_blank" rel="noopener" download style="flex:0 0 auto; width:126px; height:126px; borderRadius:50%; background:#1A1C18; color:#F1EDE6; display:flex; flexDirection:column; alignItems:center; justifyContent:center; textAlign:center; gap:6px; border:1px solid #1A1C18; boxShadow:0 0 0 4px #F1EDE6, 0 0 0 5px rgba(169,135,80,0.55); transform:rotate(-7deg); transition:transform .4s cubic-bezier(.2,.7,.3,1), background .3s, color .3s" style-hover="transform:rotate(0deg) scale(1.05); background:#A98750; color:#1A1C18; borderColor:#A98750">
@@ -44,30 +44,44 @@
 
   <section style="maxWidth:1280px; margin:0 auto; padding:clamp(36px,5vw,60px) clamp(18px,4vw,32px) 0">
     <sc-for list="{{ range }}" as="unit" hint-placeholder-count="6">
-      <article style="borderTop:1px solid rgba(26,28,24,0.16); padding:clamp(28px,4vw,48px) 0; display:grid; gridTemplateColumns:repeat(auto-fit, minmax(300px, 1fr)); gap:clamp(24px,4vw,52px); alignItems:center">
+      <article style="background:{{ unit.rowBg }}; borderTop:2px solid #1A1C18; padding:clamp(28px,4vw,48px) clamp(18px,3vw,28px); display:grid; gridTemplateColumns:repeat(auto-fit, minmax(300px, 1fr)); gap:clamp(24px,4vw,52px); alignItems:center">
         <div style="order:{{ unit.textOrder }}">
           <div style="display:flex; alignItems:center; gap:14px">
             <span style="fontSize:11px; fontWeight:700; letterSpacing:0.14em; padding:6px 11px; background:{{ unit.accent }}; color:#FAF8F4">{{ unit.no }}</span>
             <span style="height:1px; width:44px; background:{{ unit.accent }}; opacity:0.45; display:block"></span>
           </div>
-          <h2 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(28px,3.4vw,44px); lineHeight:1.08; letterSpacing:-0.012em; margin:16px 0 0; color:{{ unit.dark }}">{{ unit.title }}</h2>
-          <p style="fontSize:16px; lineHeight:1.66; color:#3D4038; margin:16px 0 0; maxWidth:52ch; textWrap:pretty">{{ unit.body }}</p>
-          <p style="fontSize:15px; lineHeight:1.66; color:#54574E; margin:14px 0 0; maxWidth:52ch; textWrap:pretty">{{ unit.detail }}</p>
+          <h2 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(28px,3.4vw,44px); lineHeight:1.08; letterSpacing:-0.012em; margin:16px 0 0; color:{{ unit.titleColor }}">{{ unit.title }}</h2>
+          <p style="fontSize:16px; lineHeight:1.66; color:{{ unit.bodyColor }}; margin:16px 0 0; maxWidth:52ch; textWrap:pretty">{{ unit.body }}</p>
+          <p style="fontSize:15px; lineHeight:1.66; color:{{ unit.detailColor }}; margin:14px 0 0; maxWidth:52ch; textWrap:pretty">{{ unit.detail }}</p>
           <div style="display:flex; gap:8px; flexWrap:wrap; marginTop:20px">
             <sc-for list="{{ unit.tags }}" as="tag" hint-placeholder-count="3">
               <span style="fontSize:11.5px; fontWeight:600; letterSpacing:0.08em; textTransform:uppercase; padding:7px 13px; border:1px solid {{ tag.line }}; color:{{ tag.color }}">{{ tag.label }}</span>
             </sc-for>
           </div>
         </div>
-        <div style="order:{{ unit.imgOrder }}; height:clamp(260px,32vw,400px); background:{{ unit.tint }}; position:relative; overflow:hidden; border:1px solid rgba(26,28,24,0.1)">
-          <sc-if value="{{ unit.hasPhoto }}" hint-placeholder-val="{{ true }}">
+        <div onClick="{{ unit.openGallery }}" style="order:{{ unit.imgOrder }}; height:clamp(260px,32vw,400px); background:{{ unit.tint }}; position:relative; overflow:hidden; border:1px solid rgba(26,28,24,0.1); cursor:{{ unit.cursor }}">
+          <sc-if value="{{ unit.coverPhoto }}" hint-placeholder-val="{{ true }}">
             <img src="{{ unit.src }}" srcset="{{ unit.srcset }}" sizes="(max-width: 760px) 100vw, 50vw" alt="{{ unit.alt }}" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; objectFit:cover; display:block">
+          </sc-if>
+          <sc-if value="{{ unit.containPhoto }}" hint-placeholder-val="{{ false }}">
+            <img src="{{ unit.src }}" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute; inset:-10%; width:120%; height:120%; objectFit:cover; filter:blur(24px) brightness(0.75); display:block">
+            <img src="{{ unit.src }}" srcset="{{ unit.srcset }}" sizes="(max-width: 760px) 100vw, 50vw" alt="{{ unit.alt }}" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; objectFit:contain; display:block">
           </sc-if>
           <sc-if value="{{ unit.noPhoto }}" hint-placeholder-val="{{ false }}">
             <div style="position:absolute; inset:0; display:flex; flexDirection:column; alignItems:center; justifyContent:center; textAlign:center; padding:28px; gap:12px">
               <span style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(56px,7vw,88px); lineHeight:1; color:{{ unit.accent }}; opacity:0.5">{{ unit.no }}</span>
               <span style="fontSize:13px; lineHeight:1.6; color:{{ unit.dark }}; maxWidth:26ch">Built to order. Ring us and we will tell you what is on the floor in Ennis this week.</span>
             </div>
+          </sc-if>
+          <sc-if value="{{ unit.hasPhoto }}" hint-placeholder-val="{{ true }}">
+            <button type="button" onClick="{{ unit.openGallery }}" aria-label="Expand gallery" style="position:absolute; top:14px; right:14px; width:38px; height:38px; border:0; background:rgba(26,28,24,0.62); color:#FAF8F4; cursor:pointer; backdropFilter:blur(3px); display:flex; alignItems:center; justifyContent:center" style-hover="background:#1A1C18; color:#FAF8F4">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3"></path><path d="M16 3h3a2 2 0 0 1 2 2v3"></path><path d="M21 16v3a2 2 0 0 1-2 2h-3"></path><path d="M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+            </button>
+          </sc-if>
+          <sc-if value="{{ unit.many }}" hint-placeholder-val="{{ false }}">
+            <button type="button" onClick="{{ unit.prev }}" aria-label="Previous photograph" style="position:absolute; left:10px; top:50%; transform:translateY(-50%); width:44px; height:44px; border:0; background:rgba(26,28,24,0.62); color:#FAF8F4; fontSize:22px; lineHeight:1; cursor:pointer; backdropFilter:blur(3px); display:flex; alignItems:center; justifyContent:center" style-hover="background:#1A1C18; color:#FAF8F4">‹</button>
+            <button type="button" onClick="{{ unit.next }}" aria-label="Next photograph" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); width:44px; height:44px; border:0; background:rgba(26,28,24,0.62); color:#FAF8F4; fontSize:22px; lineHeight:1; cursor:pointer; backdropFilter:blur(3px); display:flex; alignItems:center; justifyContent:center" style-hover="background:#1A1C18; color:#FAF8F4">›</button>
+            <div style="position:absolute; bottom:12px; left:50%; transform:translateX(-50%); fontSize:10.5px; fontWeight:700; letterSpacing:0.12em; padding:6px 12px; background:rgba(26,28,24,0.72); color:#FAF8F4; backdropFilter:blur(3px)">{{ unit.posLabel }}</div>
           </sc-if>
         </div>
       </article>
@@ -132,25 +146,52 @@
     </div>
   </section>
 
-  <section style="maxWidth:1280px; margin:0 auto; padding:clamp(48px,7vw,80px) clamp(18px,4vw,32px)">
+  <section style="background:#DCD2BF; borderTop:2px solid #1A1C18; borderBottom:2px solid #1A1C18">
+    <div style="maxWidth:1280px; margin:0 auto; padding:clamp(48px,7vw,80px) clamp(18px,4vw,32px)">
     <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(260px, 1fr)); gap:clamp(20px,3vw,32px)">
-      <a href="planning.html" style="border:1px solid rgba(26,28,24,0.14); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
-        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#A98750">Next</div>
+      <a href="planning.html" style="border:1px solid rgba(26,28,24,0.24); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
+        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#6E5628">Next</div>
         <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:26px; marginTop:12px">Do you need planning permission?</div>
         <p style="fontSize:14.5px; color:#54574E; margin:10px 0 0; lineHeight:1.6">Since July 2026, often not. Here are the sizes that changed.</p>
       </a>
-      <a href="showroom.html" style="border:1px solid rgba(26,28,24,0.14); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
-        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#A98750">See them</div>
+      <a href="showroom.html" style="border:1px solid rgba(26,28,24,0.24); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
+        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#6E5628">See them</div>
         <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:26px; marginTop:12px">Inside the Ennis showroom</div>
         <p style="fontSize:14.5px; color:#54574E; margin:10px 0 0; lineHeight:1.6">Photographs of the units standing on the floor.</p>
       </a>
-      <a href="faq.html" style="border:1px solid rgba(26,28,24,0.14); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
-        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#A98750">Still wondering</div>
+      <a href="faq.html" style="border:1px solid rgba(26,28,24,0.24); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
+        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#6E5628">Still wondering</div>
         <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:26px; marginTop:12px">Twelve questions we get</div>
         <p style="fontSize:14.5px; color:#54574E; margin:10px 0 0; lineHeight:1.6">Cost, delivery, warranty, connections, letting.</p>
       </a>
     </div>
+  </div>
   </section>
+
+  <sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ lbClose }}" style="position:fixed; inset:0; zIndex:200; background:rgba(18,19,16,0.94); display:flex; flexDirection:column; padding:clamp(10px,2vw,22px)">
+      <div style="display:flex; alignItems:center; justifyContent:space-between; gap:16px; color:#EDEAE2; flex:0 0 auto; paddingBottom:12px">
+        <div>
+          <div style="fontSize:11px; fontWeight:700; letterSpacing:0.14em; textTransform:uppercase; color:#C9A96B">{{ lbTitle }}</div>
+          <div style="fontSize:12px; color:#9BA093; marginTop:4px">{{ lbPos }}</div>
+        </div>
+        <button type="button" onClick="{{ lbClose }}" aria-label="Close" style="width:44px; height:44px; border:1px solid rgba(237,234,226,0.4); background:transparent; color:#EDEAE2; fontSize:20px; lineHeight:1; cursor:pointer; flex:0 0 auto" style-hover="background:#EDEAE2; color:#1A1C18">×</button>
+      </div>
+      <div onClick="{{ lbStop }}" style="flex:1 1 auto; minHeight:0; display:flex; alignItems:center; justifyContent:center; gap:clamp(8px,1.5vw,18px)">
+        <sc-if value="{{ lbMany }}" hint-placeholder-val="{{ false }}">
+          <button type="button" onClick="{{ lbPrev }}" aria-label="Previous photograph" style="flex:0 0 auto; width:clamp(42px,5vw,56px); height:clamp(42px,5vw,56px); border:1px solid rgba(237,234,226,0.4); background:transparent; color:#EDEAE2; fontSize:20px; cursor:pointer" style-hover="background:#EDEAE2; color:#1A1C18">‹</button>
+        </sc-if>
+        <img src="{{ lbSrc }}" alt="{{ lbAlt }}" decoding="async" style="maxWidth:100%; maxHeight:100%; objectFit:contain; display:block; border:1px solid rgba(237,234,226,0.22)">
+        <sc-if value="{{ lbMany }}" hint-placeholder-val="{{ false }}">
+          <button type="button" onClick="{{ lbNext }}" aria-label="Next photograph" style="flex:0 0 auto; width:clamp(42px,5vw,56px); height:clamp(42px,5vw,56px); border:1px solid rgba(237,234,226,0.4); background:transparent; color:#EDEAE2; fontSize:20px; cursor:pointer" style-hover="background:#EDEAE2; color:#1A1C18">›</button>
+        </sc-if>
+      </div>
+      <div onClick="{{ lbStop }}" style="flex:0 0 auto; paddingTop:14px; display:flex; alignItems:center; justifyContent:space-between; gap:18px; flexWrap:wrap">
+        <div style="fontSize:14.5px; color:#D8DAD1; lineHeight:1.5; maxWidth:60ch">{{ lbCap }}</div>
+        <a href="visit.html" style="background:#C9A96B; color:#1A1C18; padding:13px 22px; fontSize:11.5px; fontWeight:700; letterSpacing:0.1em; textTransform:uppercase; whiteSpace:nowrap" style-hover="background:#F1EDE6; color:#1A1C18">Come and see it</a>
+      </div>
+    </div>
+  </sc-if>
 
   <dc-import name="footer" hint-size="100%,300px"></dc-import>
 </div>
@@ -158,18 +199,106 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
+  state = { slide: {}, lbUnit: null };
+
+  lbStep(d) {
+    const photos = (this._unitsPhotos || {})[this.state.lbUnit] || [];
+    const n = photos.length;
+    if (!n) return;
+    this.setState(s => ({ slide: { ...s.slide, [s.lbUnit]: (((s.slide[s.lbUnit] || 0) + d) % n + n) % n } }));
+  }
+
+  componentDidMount() {
+    this._onKeyLb = (e) => {
+      if (this.state.lbUnit == null) return;
+      if (e.key === "Escape") this.setState({ lbUnit: null });
+      if (e.key === "ArrowRight") this.lbStep(1);
+      if (e.key === "ArrowLeft") this.lbStep(-1);
+    };
+    window.addEventListener("keydown", this._onKeyLb);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("keydown", this._onKeyLb);
+  }
+
   renderVals() {
     const A = { brass: "#A98750", olive: "#5C6B4A", clay: "#A9603F", slate: "#4A5A63", stone: "#8A7F6B" };
     const D = { brass: "#6E5628", olive: "#3D4A2F", clay: "#7A3F26", slate: "#2E3C44", stone: "#514A3B" };
     const T = { brass: "#F7F2E8", olive: "#F0F3EA", clay: "#F9EFE9", slate: "#EDF1F3", stone: "#F4F1EA" };
-    const tag = (label, key) => ({ label, color: D[key], line: A[key] + "66" });
+    const tag = (label, key, light) => ({ label, color: light ? "#EDEAE2" : D[key], line: light ? "rgba(237,234,226,0.35)" : A[key] + "66" });
+
+    const PORTRAIT = new Set(["cp-door-hall","cp-corridor","cp-bathroom-door","cp-skylight","cp-basin","cp-shower","cp-shower-head","gf-shower-column","gf-bedroom","gf-shower-room","gf-kitchen-run","sr-ext-pod-small","su-interior-door","sr-ext-bifold-grass","eh-living-sofa","sr-in-skylight","eh-mirror-heater","sr-det-lock","eh-bathroom","eh-shower-column"]);
+    const ph = (base, alt, cap) => ({
+      src: `assets/${base}-1600.webp`,
+      srcset: `assets/${base}-900.webp 900w, assets/${base}-1600.webp 1600w`,
+      alt, cap, portrait: PORTRAIT.has(base)
+    });
+
+    const extra = {
+      "01": [
+        ph("cp-glazing", "Capsule pod home with lit wraparound glazing and the kitchen showing through", "Lit glazing, kitchen showing through"),
+        ph("cp-door-hall", "Capsule pod front door open onto a fitted timber hallway with controls", "In through the front door"),
+        ph("cp-corridor", "Interior corridor of a capsule pod home with timber floor and doors off it", "The corridor, front to back"),
+        ph("sr-fit-kitchen-sink", "Fitted kitchen worktop with induction hob, sink and sockets", "Induction hob, sink, sockets on"),
+        ph("cp-bathroom-door", "Shower room door open showing a basin and vanity unit inside", "Shower room off the hallway"),
+        ph("cp-basin", "Basin, vanity unit and mirror in a capsule pod shower room", "Basin, vanity and mirror"),
+        ph("cp-shower", "Glass shower enclosure with marble tiling in a capsule pod", "The shower, tiled and glazed"),
+        ph("cp-shower-head", "Black rain shower head and handset on a marble tiled wall", "Rain head and handset"),
+        ph("cp-bath-controls", "Bathroom control panel with heater, exhaust, fan and light buttons", "Heater, fan and light on one panel"),
+        ph("cp-skylight", "Skylight set into the ceiling of a capsule pod home", "Skylight over the corridor"),
+        ph("sr-in-rattan-set", "Two rattan chairs and a glass table on a timber floor inside a pod", "Rattan set inside the glazed end"),
+        ph("cp-floor-socket", "Pop up socket set flush into the timber floor of a pod home", "Sockets that sit flush in the floor")
+      ],
+      "02": [
+        ph("sr-ext-cube-white", "Small square garden office pod with one large window, on gravel", "The square shell, one big window"),
+        ph("sr-ext-pod-small", "Small white garden office pod with a glazed door standing on gravel", "The smallest one we do"),
+        ph("sr-ext-bifold-yard", "Garden office pod with timber cladding and full height sliding glazing", "Timber cladding and sliding glass"),
+        ph("go-pair-yard", "Two garden office pods side by side outside in the yard", "Two of them, side by side")
+      ],
+      "03": [
+        ph("granny-flat", "Granny flat with timber cladding and bi-fold doors open onto decking", "Bi-folds open onto the decking"),
+        ph("gf-bedroom", "Granny flat bedroom with a bed on a drawer base, wardrobe and window", "Bedroom, wardrobe and drawers built in"),
+        ph("gf-kitchen-run", "Full kitchen run with sink, induction hob, sockets and wall units", "The full kitchen run"),
+        ph("sr-fit-kitchen-shower", "Granny flat interior with a fitted kitchen beside a tiled shower room", "Kitchen one side, shower room the other"),
+        ph("gf-shower-room", "Tiled shower room with toilet, glass screen and water heater", "Shower room, tiled and screened"),
+        ph("gf-shower-column", "Brushed steel shower column with rain head and handset on marble tiling", "Rain head and handset")
+      ],
+      "04": [
+        ph("site-unit", "Brown 20ft site unit fitted with a serving hatch, propped open", "A 20ft unit with a serving hatch"),
+        ph("su-hatch-side", "Serving hatch propped open along the side of a container unit", "The hatch, from along the side"),
+        ph("su-interior-door", "Inside a fitted shop unit with stainless benching and a door out", "Inside, benched and ready"),
+        ph("su-prep-bench", "Stainless steel prep bench and double sink inside a container unit", "Prep bench and double sink"),
+        ph("su-bench-run", "Run of stainless steel benching inside a fitted container unit", "The full bench run"),
+        ph("su-bench-corner", "Stainless benching turning the corner inside a container unit", "Benching round the corner")
+      ],
+      "05": [
+        ph("eh-bifold-open", "Bi-fold doors folded back on an expanding home, sofa and kitchen inside", "Bi-folds folded right back"),
+        ph("eh-bedroom-empty", "Bedroom inside an expanding home with two windows and timber floor", "One of the bedrooms"),
+        ph("eh-stone-front", "Expanding home opened out on the floor, stone clad with bi-fold glass doors", "Opened out, stone cladding and bi-folds"),
+        ph("eh-hall-doors", "Hallway inside an expanding home looking through to the bedrooms and out", "Hallway through to the rooms"),
+        ph("eh-bathroom", "Bathroom in an expanding home with basin, toilet and glazed shower", "Bathroom, basin and shower"),
+        ph("eh-mirror-heater", "Mirrored cabinet and instant water heater in an expanding home bathroom", "Mirror cabinet and water heater"),
+        ph("sr-ext-bifold-grass", "Bi-fold doors of an expanding home standing open onto turf and planters", "The doors from the outside corner"),
+        ph("eh-living-sofa", "Living area of an expanding home with a sofa, windows and fitted units", "Living end, sofa and units in"),
+        ph("eh-shower-column", "Rain shower head, handset and mixer on marble tiling in an expanding home bathroom", "Rain head and handset")
+      ],
+      "06": [
+        ph("sr-ext-custom-lit", "Custom pod home with lit wraparound glazing, kitchen visible inside", "Lit glazing, kitchen showing through"),
+        ph("sr-in-corridor-bed", "Interior of a pod home with a bed, timber floor and full height glazing", "Bed, corridor, glass the whole way"),
+        ph("sr-in-skylight", "Skylight and recessed lighting above a bed inside a pod home", "Skylight over the bed"),
+        ph("sr-fit-kitchen-sink", "Fitted kitchen worktop with induction hob and sink", "Induction hob, sink, sockets on"),
+        ph("sr-det-lock", "Keypad door lock on a pod home with key cards hanging from it", "Keypad lock, cards included")
+      ]
+    };
+    const unitsPhotos = {};
 
     const range = [
       { no: "01", key: "brass", title: "Capsule pod homes", slot: "kv-p1", src: "assets/capsule-pod-v2-1600.webp", srcset: "assets/capsule-pod-v2-900.webp 900w, assets/capsule-pod-v2-1600.webp 1600w", alt: "Capsule pod home with lit octagonal glazing on the Ennis showroom floor",
         body: "A complete small home inside one curved, glazed shell, with the bed, kitchen and shower room already fitted. It lands in the morning and someone can sleep in it that night, which is why they let so well by the week.",
         detail: "Underfloor heating, air conditioning and a fully finished bathroom come as standard, so there is nothing to fit out once it is craned into place.",
         tags: ["Short let ready", "Arrives finished", "One bed"] },
-      { no: "02", key: "olive", title: "Garden offices", slot: "kv-p2", src: "assets/garden-office-v2-1600.webp", srcset: "assets/garden-office-v2-900.webp 900w, assets/garden-office-v2-1600.webp 1600w", alt: "White glazed garden office pod, full height window, at the Ennis yard",
+      { no: "02", key: "olive", title: "Garden offices", slot: "kv-p2", src: "assets/sr-ext-cube-white-1600.webp", srcset: "assets/sr-ext-cube-white-900.webp 900w, assets/sr-ext-cube-white-1600.webp 1600w", alt: "White glazed garden office pod, full height window, at the Ennis yard",
         body: "Ten steps from the back door and the commute is over. Wired for a desk, a heater and a proper connection, so it earns its place in February as well as June.",
         detail: "Garden structures up to 30 m² sit inside the planning exemption, which is the band most garden offices are built to. Insulated to 75 mm throughout.",
         tags: ["Warm year round", "Wired and ready", "Up to 30 m²"] },
@@ -189,14 +318,47 @@ class Component extends DCLogic {
         body: "The high spec end of the pods. Moulded gloss shell, wraparound glazing with a lit surround, keypad entry and a fitted interior.",
         detail: "Built to your layout rather than off a shelf, so the room count, the window positions and the finish inside are settled before it is made. Three months from order.",
         tags: ["Built to your layout", "Keypad entry", "3 month build"] }
-    ].map((u, i) => ({
-      ...u,
-      accent: A[u.key], dark: D[u.key], tint: T[u.key],
-      hasPhoto: !!u.src, noPhoto: !u.src,
-      textOrder: i % 2 === 0 ? 1 : 2,
-      imgOrder: i % 2 === 0 ? 2 : 1,
-      tags: u.tags.map(t => tag(t, u.key))
-    }));
+    ].map((u, i) => {
+      const own = extra[u.no];
+      const photos = own && own.length ? own : [{ src: u.src, srcset: u.srcset, alt: u.alt, cap: "On the showroom floor in Ennis" }];
+      unitsPhotos[u.no] = photos;
+      const n = photos.length;
+      const idx = ((this.state.slide[u.no] || 0) % n + n) % n;
+      const cur = photos[idx];
+      const move = (d) => (e) => {
+        e.preventDefault(); e.stopPropagation();
+        this.setState(s => ({ slide: { ...s.slide, [u.no]: (((s.slide[u.no] || 0) + d) % n + n) % n } }));
+      };
+      return {
+        ...u,
+        accent: A[u.key], dark: D[u.key], tint: T[u.key],
+        src: cur.src, srcset: cur.srcset, alt: cur.alt, cap: cur.cap,
+        hasPhoto: !!cur.src, noPhoto: !cur.src,
+        coverPhoto: !!cur.src && !cur.portrait,
+        containPhoto: !!cur.src && !!cur.portrait,
+        cursor: cur.src ? "pointer" : "default",
+        openGallery: (e) => { if (e) { e.preventDefault(); e.stopPropagation(); } if (cur.src) this.setState({ lbUnit: u.no }); },
+        many: n > 1,
+        posLabel: (idx + 1) + " / " + n,
+        prev: move(-1),
+        next: move(1),
+        textOrder: i % 2 === 0 ? 1 : 2,
+        imgOrder: i % 2 === 0 ? 2 : 1,
+        tags: u.tags.map(t => tag(t, u.key, i % 2 === 0)),
+        rowBg: i % 2 === 0 ? "#23261F" : "transparent",
+        titleColor: i % 2 === 0 ? "#C9A96B" : D[u.key],
+        bodyColor: i % 2 === 0 ? "#D8DAD1" : "#3D4038",
+        detailColor: i % 2 === 0 ? "#9BA093" : "#54574E"
+      };
+    });
+
+    this._unitsPhotos = unitsPhotos;
+    const lbUnit = this.state.lbUnit;
+    const lbPhotos = lbUnit ? (unitsPhotos[lbUnit] || []) : [];
+    const lbN = lbPhotos.length;
+    const lbIdx = lbN ? (((this.state.slide[lbUnit] || 0) % lbN + lbN) % lbN) : 0;
+    const lbPhoto = lbN ? lbPhotos[lbIdx] : null;
+    const lbUnitMeta = range.find(u => u.no === lbUnit);
 
     const facts = [
       { figure: "32–45 m²", label: "Floor area", body: "The band the new planning exemption allows. Base sizes are a starting point, dimensions can go where you need them." },
@@ -219,7 +381,20 @@ class Component extends DCLogic {
       { title: "Craning and access", body: "Our own crane truck delivers to the site. Lifting over a wall or into a tight garden is arranged separately." }
     ];
 
-    return { range, facts, standard, options };
+    return {
+      range, facts, standard, options,
+      lbOpen: !!lbPhoto,
+      lbSrc: lbPhoto ? lbPhoto.src : "",
+      lbAlt: lbPhoto ? lbPhoto.alt : "",
+      lbCap: lbPhoto ? lbPhoto.cap : "",
+      lbTitle: lbUnitMeta ? lbUnitMeta.title : "",
+      lbPos: lbN ? (lbIdx + 1) + " of " + lbN : "",
+      lbMany: lbN > 1,
+      lbClose: () => this.setState({ lbUnit: null }),
+      lbPrev: (e) => { e.stopPropagation(); this.lbStep(-1); },
+      lbNext: (e) => { e.stopPropagation(); this.lbStep(1); },
+      lbStop: (e) => e.stopPropagation()
+    };
   }
 }
 
