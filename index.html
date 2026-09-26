@@ -93,15 +93,27 @@
     </div>
 
     <div data-reveal="1" style="marginTop:clamp(28px,4vw,46px); position:relative; overflow:hidden; height:min(560px, 58vh, calc((100vw - 2 * clamp(18px,4vw,32px)) * 0.5625)); background:#1A1C18">
-      <video data-hero-video="1" src="assets/showroom-video.mp4" poster="assets/showroom-floor-1600.webp" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="auto" aria-label="The Kilrush Ventures showroom floor in Ennis" style="position:absolute; inset:0; width:100%; height:100%; objectFit:cover; display:block"></video>
+      <video data-hero-video="1" src="assets/showroom-video.mp4" poster="assets/showroom-floor-1600.webp" autoPlay="{{ true }}" muted="{{ true }}" onEnded="{{ heroEnded }}" onPlay="{{ heroOnPlay }}" onPause="{{ heroOnPause }}" onClick="{{ heroTap }}" playsInline="{{ true }}" preload="auto" aria-label="The Kilrush Ventures showroom floor in Ennis" style="position:absolute; inset:0; width:100%; height:100%; objectFit:cover; display:block; cursor:pointer"></video>
       
-      <div style="position:absolute; left:clamp(18px,3vw,30px); right:clamp(18px,3vw,30px); bottom:22px; display:flex; justifyContent:flex-end">
-      
-      <button type="button" onClick="{{ vidOpenFn }}" style="display:flex; alignItems:center; gap:12px; background:#F1EDE6; color:#1A1C18; border:0; borderRadius:2px; padding:14px 22px 14px 16px; fontFamily:'Manrope', sans-serif; fontSize:12.5px; fontWeight:700; letterSpacing:0.09em; textTransform:uppercase; cursor:pointer" style-hover="background:#C9A96B; color:#1A1C18">
-        <span style="width:30px; height:30px; borderRadius:50%; background:#1A1C18; color:#F1EDE6; display:flex; alignItems:center; justifyContent:center; flex:0 0 auto"><svg width="11" height="12" viewBox="0 0 11 12" fill="currentColor" aria-hidden="true"><path d="M1 0.8L10.2 6L1 11.2Z"></path></svg></span>
-        Watch the full video
+      <sc-if value="{{ heroDone }}" hint-placeholder-val="{{ false }}">
+        <button type="button" onClick="{{ heroReplay }}" aria-label="Play again" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:flex; alignItems:center; gap:10px; background:rgba(26,28,24,0.72); color:#F1EDE6; border:1px solid rgba(241,237,230,0.45); borderRadius:2px; padding:13px 20px; fontFamily:'Manrope', sans-serif; fontSize:12px; fontWeight:700; letterSpacing:0.09em; textTransform:uppercase; cursor:pointer; backdropFilter:blur(3px)" style-hover="background:#1A1C18; borderColor:#F1EDE6">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v5h5"></path></svg>
+          Play again
+        </button>
+      </sc-if>
+      <sc-if value="{{ heroShowPlay }}" hint-placeholder-val="{{ false }}">
+        <button type="button" onClick="{{ heroPlay }}" aria-label="Play video" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:60px; height:60px; borderRadius:50%; background:rgba(26,28,24,0.72); color:#F1EDE6; border:1px solid rgba(241,237,230,0.45); display:flex; alignItems:center; justifyContent:center; cursor:pointer; backdropFilter:blur(3px)" style-hover="background:#1A1C18; borderColor:#F1EDE6">
+          <svg width="18" height="20" viewBox="0 0 11 12" fill="currentColor" aria-hidden="true"><path d="M1.5 0.8L10.2 6L1.5 11.2Z"></path></svg>
+        </button>
+      </sc-if>
+      <button type="button" onClick="{{ heroToggleMute }}" aria-label="{{ heroMuteLabel }}" style="position:absolute; right:clamp(10px,2vw,22px); bottom:clamp(10px,2vw,20px); width:44px; height:44px; borderRadius:50%; background:rgba(26,28,24,0.72); color:#F1EDE6; border:1px solid rgba(241,237,230,0.45); display:flex; alignItems:center; justifyContent:center; cursor:pointer; backdropFilter:blur(3px)" style-hover="background:#1A1C18; borderColor:#F1EDE6">
+        <sc-if value="{{ heroMuted }}" hint-placeholder-val="{{ true }}">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4z" fill="currentColor"></path><path d="M22 9l-6 6M16 9l6 6"></path></svg>
+        </sc-if>
+        <sc-if value="{{ heroSound }}" hint-placeholder-val="{{ false }}">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4z" fill="currentColor"></path><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"></path></svg>
+        </sc-if>
       </button>
-      </div>
     </div>
 
     <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(min(100%, 170px), 1fr)); gap:clamp(12px,1.4vw,18px); marginTop:clamp(28px,4vw,44px)">
@@ -386,18 +398,6 @@
   </section>
 
 
-  <sc-if value="{{ vidOpen }}" hint-placeholder-val="{{ false }}">
-    <div onClick="{{ vidClose }}" style="position:fixed; inset:0; zIndex:210; background:rgba(18,19,16,0.95); display:flex; flexDirection:column; padding:clamp(10px,2vw,22px)">
-      <div style="display:flex; alignItems:center; justifyContent:space-between; gap:16px; color:#EDEAE2; flex:0 0 auto; paddingBottom:12px">
-        <div style="fontSize:11px; fontWeight:700; letterSpacing:0.14em; textTransform:uppercase; color:#C9A96B">Inside the Ennis showroom</div>
-        <button type="button" onClick="{{ vidClose }}" aria-label="Close video" style="width:44px; height:44px; border:1px solid rgba(237,234,226,0.4); background:transparent; color:#EDEAE2; fontSize:20px; lineHeight:1; cursor:pointer; flex:0 0 auto" style-hover="background:#EDEAE2; color:#1A1C18">×</button>
-      </div>
-      <div onClick="{{ lbStop }}" style="flex:1 1 auto; minHeight:0; display:flex; alignItems:center; justifyContent:center">
-        <video src="assets/showroom-video.mp4" autoPlay="{{ true }}" controls="{{ true }}" playsInline="{{ true }}" style="maxWidth:100%; maxHeight:100%; display:block; background:#000"></video>
-      </div>
-    </div>
-  </sc-if>
-
   <sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}">
     <div onClick="{{ lbClose }}" style="position:fixed; inset:0; zIndex:200; background:rgba(18,19,16,0.94); display:flex; flexDirection:column; padding:clamp(10px,2vw,22px)">
       <div style="display:flex; alignItems:center; justifyContent:space-between; gap:16px; color:#EDEAE2; flex:0 0 auto; paddingBottom:12px">
@@ -429,7 +429,9 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { use: 0, progress: "0%", slide: {}, lbUnit: null, vid: false };
+  state = { use: 0, progress: "0%", slide: {}, lbUnit: null, heroDone: false, heroMuted: true, heroPaused: true };
+
+  heroVid(fn) { const v = document.querySelector("[data-hero-video]"); if (v) fn(v); }
 
   lbStep(d) {
     const photos = (this._unitsPhotos || {})[this.state.lbUnit] || [];
@@ -440,7 +442,6 @@ class Component extends DCLogic {
 
   componentDidMount() {
     this._onKeyLb = (e) => {
-      if (this.state.vid && e.key === "Escape") { this.setState({ vid: false }); return; }
       if (this.state.lbUnit == null) return;
       if (e.key === "Escape") this.setState({ lbUnit: null });
       if (e.key === "ArrowRight") this.lbStep(1);
@@ -663,9 +664,18 @@ class Component extends DCLogic {
       lbPrev: (e) => { e.stopPropagation(); this.lbStep(-1); },
       lbNext: (e) => { e.stopPropagation(); this.lbStep(1); },
       lbStop: (e) => e.stopPropagation(),
-      vidOpen: this.state.vid,
-      vidOpenFn: () => { const v = document.querySelector("[data-hero-video]"); if (v) v.pause(); this.setState({ vid: true }); },
-      vidClose: () => { this.setState({ vid: false }); const v = document.querySelector("[data-hero-video]"); if (v) { const p = v.play(); if (p && p.catch) p.catch(() => {}); } },
+      heroMuted: this.state.heroMuted,
+      heroSound: !this.state.heroMuted,
+      heroMuteLabel: this.state.heroMuted ? "Unmute video" : "Mute video",
+      heroDone: this.state.heroDone,
+      heroShowPlay: this.state.heroPaused && !this.state.heroDone,
+      heroOnPlay: () => this.setState({ heroPaused: false, heroDone: false }),
+      heroOnPause: () => this.setState({ heroPaused: true }),
+      heroEnded: () => this.setState({ heroDone: true, heroPaused: true }),
+      heroPlay: () => this.heroVid(v => { const p = v.play(); if (p && p.catch) p.catch(() => {}); }),
+      heroTap: () => this.heroVid(v => { if (v.paused) { if (v.ended) v.currentTime = 0; const p = v.play(); if (p && p.catch) p.catch(() => {}); } else v.pause(); }),
+      heroReplay: () => this.heroVid(v => { v.currentTime = 0; const p = v.play(); if (p && p.catch) p.catch(() => {}); }),
+      heroToggleMute: () => this.heroVid(v => { v.muted = !v.muted; this.setState({ heroMuted: v.muted }); if (!v.muted && v.paused && !v.ended) { const p = v.play(); if (p && p.catch) p.catch(() => {}); } }),
       planning,
       uses: useData.map(([title, hint, body, dot], i) => ({
         title, hint, body, dot,
