@@ -93,7 +93,7 @@
     </div>
 
     <div data-reveal="1" style="marginTop:clamp(28px,4vw,46px); position:relative; overflow:hidden; height:min(560px, 58vh, calc((100vw - 2 * clamp(18px,4vw,32px)) * 0.5625)); background:#1A1C18">
-      <video data-hero-video="1" src="assets/showroom-video.mp4" poster="assets/showroom-floor-1600.webp" autoPlay="{{ true }}" muted="{{ true }}" onEnded="{{ heroEnded }}" onPlay="{{ heroOnPlay }}" onPause="{{ heroOnPause }}" onClick="{{ heroTap }}" playsInline="{{ true }}" preload="auto" aria-label="The Kilrush Ventures showroom floor in Ennis" style="position:absolute; inset:0; width:100%; height:100%; objectFit:cover; display:block; cursor:pointer"></video>
+      <video data-hero-video="1" src="assets/showroom-video.mp4" poster="assets/showroom-floor-1600.webp" autoPlay="{{ true }}" muted="{{ true }}" onEnded="{{ heroEnded }}" onPlay="{{ heroOnPlay }}" onPause="{{ heroOnPause }}" onVolumeChange="{{ heroOnVol }}" onClick="{{ heroTap }}" playsInline="{{ true }}" preload="auto" aria-label="The Kilrush Ventures showroom floor in Ennis" style="position:absolute; inset:0; width:100%; height:100%; objectFit:cover; display:block; cursor:pointer"></video>
       
       <sc-if value="{{ heroDone }}" hint-placeholder-val="{{ false }}">
         <button type="button" onClick="{{ heroReplay }}" aria-label="Play again" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:flex; alignItems:center; gap:10px; background:rgba(26,28,24,0.72); color:#F1EDE6; border:1px solid rgba(241,237,230,0.45); borderRadius:2px; padding:13px 20px; fontFamily:'Manrope', sans-serif; fontSize:12px; fontWeight:700; letterSpacing:0.09em; textTransform:uppercase; cursor:pointer; backdropFilter:blur(3px)" style-hover="background:#1A1C18; borderColor:#F1EDE6">
@@ -106,14 +106,27 @@
           <svg width="18" height="20" viewBox="0 0 11 12" fill="currentColor" aria-hidden="true"><path d="M1.5 0.8L10.2 6L1.5 11.2Z"></path></svg>
         </button>
       </sc-if>
-      <button type="button" onClick="{{ heroToggleMute }}" aria-label="{{ heroMuteLabel }}" style="position:absolute; right:clamp(10px,2vw,22px); bottom:clamp(10px,2vw,20px); width:44px; height:44px; borderRadius:50%; background:rgba(26,28,24,0.72); color:#F1EDE6; border:1px solid rgba(241,237,230,0.45); display:flex; alignItems:center; justifyContent:center; cursor:pointer; backdropFilter:blur(3px)" style-hover="background:#1A1C18; borderColor:#F1EDE6">
-        <sc-if value="{{ heroMuted }}" hint-placeholder-val="{{ true }}">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4z" fill="currentColor"></path><path d="M22 9l-6 6M16 9l6 6"></path></svg>
-        </sc-if>
-        <sc-if value="{{ heroSound }}" hint-placeholder-val="{{ false }}">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4z" fill="currentColor"></path><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"></path></svg>
-        </sc-if>
-      </button>
+      <div style="position:absolute; right:clamp(10px,2vw,22px); bottom:clamp(10px,2vw,20px); display:flex; gap:8px">
+        <button type="button" onClick="{{ heroTap }}" aria-label="{{ heroPlayLabel }}" style="width:44px; height:44px; borderRadius:50%; background:rgba(26,28,24,0.72); color:#F1EDE6; border:1px solid rgba(241,237,230,0.45); display:flex; alignItems:center; justifyContent:center; cursor:pointer; backdropFilter:blur(3px); padding:0" style-hover="background:#1A1C18; borderColor:#F1EDE6">
+          <sc-if value="{{ heroPlaying }}" hint-placeholder-val="{{ true }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4.5" height="16" rx="1"></rect><rect x="14.5" y="4" width="4.5" height="16" rx="1"></rect></svg>
+          </sc-if>
+          <sc-if value="{{ heroNotPlaying }}" hint-placeholder-val="{{ false }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5L19.5 12L7 19.5Z"></path></svg>
+          </sc-if>
+        </button>
+        <button type="button" onClick="{{ heroToggleMute }}" aria-label="{{ heroMuteLabel }}" style="width:44px; height:44px; borderRadius:50%; background:rgba(26,28,24,0.72); color:#F1EDE6; border:1px solid rgba(241,237,230,0.45); display:flex; alignItems:center; justifyContent:center; cursor:pointer; backdropFilter:blur(3px); padding:0" style-hover="background:#1A1C18; borderColor:#F1EDE6">
+          <sc-if value="{{ heroMuted }}" hint-placeholder-val="{{ true }}">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4z" fill="currentColor"></path><path d="M22 9l-6 6M16 9l6 6"></path></svg>
+          </sc-if>
+          <sc-if value="{{ heroSound }}" hint-placeholder-val="{{ false }}">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4z" fill="currentColor"></path><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"></path></svg>
+          </sc-if>
+        </button>
+        <button type="button" onClick="{{ heroFullscreen }}" aria-label="Full screen" style="width:44px; height:44px; borderRadius:50%; background:rgba(26,28,24,0.72); color:#F1EDE6; border:1px solid rgba(241,237,230,0.45); display:flex; alignItems:center; justifyContent:center; cursor:pointer; backdropFilter:blur(3px); padding:0" style-hover="background:#1A1C18; borderColor:#F1EDE6">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"></path></svg>
+        </button>
+      </div>
     </div>
 
     <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(min(100%, 170px), 1fr)); gap:clamp(12px,1.4vw,18px); marginTop:clamp(28px,4vw,44px)">
@@ -448,6 +461,12 @@ class Component extends DCLogic {
       if (e.key === "ArrowLeft") this.lbStep(-1);
     };
     window.addEventListener("keydown", this._onKeyLb);
+    this._onFs = () => {
+      if (document.fullscreenElement || document.webkitFullscreenElement) return;
+      this.heroVid(v => { v.controls = false; this.setState({ heroMuted: v.muted }); });
+    };
+    document.addEventListener("fullscreenchange", this._onFs);
+    document.addEventListener("webkitfullscreenchange", this._onFs);
     this._heroT = setTimeout(() => {
       const v = document.querySelector("[data-hero-video]");
       if (v) { v.muted = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); }
@@ -506,6 +525,8 @@ class Component extends DCLogic {
     document.removeEventListener("scroll", this._onScroll, { capture: true });
     window.removeEventListener("resize", this._onScroll);
     window.removeEventListener("keydown", this._onKeyLb);
+    document.removeEventListener("fullscreenchange", this._onFs);
+    document.removeEventListener("webkitfullscreenchange", this._onFs);
     clearTimeout(this._t); clearTimeout(this._fail); clearTimeout(this._heroT);
     if (this._io) this._io.disconnect();
   }
@@ -668,9 +689,19 @@ class Component extends DCLogic {
       heroSound: !this.state.heroMuted,
       heroMuteLabel: this.state.heroMuted ? "Unmute video" : "Mute video",
       heroDone: this.state.heroDone,
+      heroPlaying: !this.state.heroPaused,
+      heroNotPlaying: this.state.heroPaused,
+      heroPlayLabel: this.state.heroPaused ? "Play video" : "Pause video",
+      heroFullscreen: () => this.heroVid(v => {
+        if (v.requestFullscreen) { v.controls = true; v.requestFullscreen().catch(() => { v.controls = false; }); }
+        else if (v.webkitRequestFullscreen) { v.controls = true; v.webkitRequestFullscreen(); }
+        else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen();
+        if (v.paused) { const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+      }),
       heroShowPlay: this.state.heroPaused && !this.state.heroDone,
       heroOnPlay: () => this.setState({ heroPaused: false, heroDone: false }),
       heroOnPause: () => this.setState({ heroPaused: true }),
+      heroOnVol: (e) => { const m = e.currentTarget.muted; if (m !== this.state.heroMuted) this.setState({ heroMuted: m }); },
       heroEnded: () => this.setState({ heroDone: true, heroPaused: true }),
       heroPlay: () => this.heroVid(v => { const p = v.play(); if (p && p.catch) p.catch(() => {}); }),
       heroTap: () => this.heroVid(v => { if (v.paused) { if (v.ended) v.currentTime = 0; const p = v.play(); if (p && p.catch) p.catch(() => {}); } else v.pause(); }),
