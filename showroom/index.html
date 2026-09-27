@@ -62,16 +62,16 @@
   <dc-import name="header" hint-size="100%,64px"></dc-import>
 
   <section style="maxWidth:1280px; margin:0 auto; padding:clamp(40px,6vw,72px) clamp(18px,4vw,32px) 0">
-    <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#6E5628">Quin Road Business Park, Ennis</div>
+    <div data-nosnippet style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#6E5628">Quin Road Business Park, Ennis</div>
     <h1 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(36px,6vw,74px); lineHeight:1.04; letterSpacing:-0.015em; margin:16px 0 0; maxWidth:20ch; textWrap:balance">Photographs only get you so far.</h1>
     <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(320px, 1fr)); gap:clamp(22px,4vw,48px); alignItems:end; marginTop:clamp(20px,3vw,30px)">
       <p style="fontSize:clamp(16px,1.6vw,18.5px); lineHeight:1.62; color:#33362F; margin:0; maxWidth:52ch; textWrap:pretty">
         Walk the floor like it's already your garden. Open a door, sit on a bed, try a shower room, feel the finish under your hand. Monday to Saturday, ten to four. No appointment needed.
       </p>
       <div style="display:flex; gap:12px; flexWrap:wrap">
-        <a href="../visit/" style="background:#1A1C18; color:#F1EDE6; padding:16px 24px; fontSize:13px; fontWeight:600; letterSpacing:0.08em; textTransform:uppercase; whiteSpace:nowrap" style-hover="background:#A98750; color:#1A1C18">Map and directions</a>
-        <a href="tel:+353874354655" style="border:1px solid rgba(26,28,24,0.28); color:#1A1C18; padding:16px 24px; fontSize:13px; fontWeight:600; letterSpacing:0.08em; textTransform:uppercase; whiteSpace:nowrap" style-hover="borderColor:#1A1C18; background:rgba(26,28,24,0.05)">Call 087 435 4655</a>
-        <button type="button" onClick="{{ vidOpenFn }}" style="display:flex; alignItems:center; gap:10px; border:1px solid rgba(26,28,24,0.28); background:transparent; color:#1A1C18; padding:12px 22px 12px 14px; fontFamily:'Manrope', sans-serif; fontSize:13px; fontWeight:600; letterSpacing:0.08em; textTransform:uppercase; whiteSpace:nowrap; cursor:pointer" style-hover="borderColor:#1A1C18; background:rgba(26,28,24,0.05)">
+        <a data-nosnippet href="../visit/" style="background:#1A1C18; color:#F1EDE6; padding:16px 24px; fontSize:13px; fontWeight:600; letterSpacing:0.08em; textTransform:uppercase; whiteSpace:nowrap" style-hover="background:#A98750; color:#1A1C18">Map and directions</a>
+        <a data-nosnippet href="tel:+353874354655" style="border:1px solid rgba(26,28,24,0.28); color:#1A1C18; padding:16px 24px; fontSize:13px; fontWeight:600; letterSpacing:0.08em; textTransform:uppercase; whiteSpace:nowrap" style-hover="borderColor:#1A1C18; background:rgba(26,28,24,0.05)">Call 087 435 4655</a>
+        <button data-nosnippet type="button" onClick="{{ vidOpenFn }}" style="display:flex; alignItems:center; gap:10px; border:1px solid rgba(26,28,24,0.28); background:transparent; color:#1A1C18; padding:12px 22px 12px 14px; fontFamily:'Manrope', sans-serif; fontSize:13px; fontWeight:600; letterSpacing:0.08em; textTransform:uppercase; whiteSpace:nowrap; cursor:pointer" style-hover="borderColor:#1A1C18; background:rgba(26,28,24,0.05)">
           <span style="width:28px; height:28px; borderRadius:50%; background:#1A1C18; color:#F1EDE6; display:flex; alignItems:center; justifyContent:center; flex:0 0 auto"><svg width="10" height="11" viewBox="0 0 11 12" fill="currentColor" aria-hidden="true"><path d="M1.5 0.8L10.2 6L1.5 11.2Z"></path></svg></span>
           Watch the video
         </button>
@@ -85,7 +85,7 @@
       <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(26,28,24,0.8) 0%, rgba(26,28,24,0.15) 45%, transparent 70%); pointerEvents:none"></div>
       <sc-for list="{{ heroSlides }}" as="h" hint-placeholder-count="5">
         <div style="position:absolute; left:clamp(20px,3.4vw,40px); bottom:clamp(22px,3.4vw,38px); right:clamp(20px,3.4vw,40px); color:#F1EDE6; pointerEvents:none; opacity:{{ h.opacity }}; transition:opacity 1.4s cubic-bezier(.4,0,.2,1)">
-          <div style="fontSize:10.5px; fontWeight:600; letterSpacing:0.2em; textTransform:uppercase; color:#C9A96B">{{ h.label }}</div>
+          <div data-nosnippet style="fontSize:10.5px; fontWeight:600; letterSpacing:0.2em; textTransform:uppercase; color:#C9A96B">{{ h.label }}</div>
           <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(22px,3vw,36px); marginTop:8px; letterSpacing:-0.01em; maxWidth:32ch; textWrap:balance">{{ h.cap }}</div>
         </div>
       </sc-for>
@@ -102,7 +102,7 @@
 
       <div style="display:flex; alignItems:flex-end; justifyContent:space-between; gap:20px; flexWrap:wrap">
         <div>
-          <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#C9A96B">The collection</div>
+          <div data-nosnippet style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#C9A96B">The collection</div>
           <h2 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(28px,3.6vw,44px); margin:12px 0 0; letterSpacing:-0.01em; color:#C9A96B">Have a look around</h2>
         </div>
         <p style="fontSize:13.5px; color:#B4B8AC; margin:0; maxWidth:34ch; lineHeight:1.6">Pick a category on the left, then browse the photos below.</p>
@@ -154,7 +154,7 @@
   <section style="maxWidth:1280px; margin:0 auto; padding:clamp(48px,7vw,80px) clamp(18px,4vw,32px)">
     <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(280px, 1fr)); gap:clamp(24px,4vw,52px); alignItems:start">
       <div>
-        <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#6E5628">Before you decide</div>
+        <div data-nosnippet style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#6E5628">Before you decide</div>
         <h2 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(26px,3.2vw,40px); margin:12px 0 0; lineHeight:1.1; letterSpacing:-0.01em; maxWidth:22ch; textWrap:balance">An hour on the floor tells you what a website can't</h2>
       </div>
       <div>
@@ -189,9 +189,9 @@
         </address>
       </div>
       <div style="display:flex; gap:12px; flexWrap:wrap">
-        <a href="tel:+353874354655" style="background:#C9A96B; color:#1A1C18; padding:16px 28px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="background:#F1EDE6; color:#1A1C18">Call 087 435 4655</a>
-        <a href="https://wa.me/353874354655" target="_blank" rel="noopener" style="border:1px solid rgba(237,234,226,0.35); color:#EDEAE2; padding:16px 28px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="borderColor:#EDEAE2; background:rgba(237,234,226,0.08); color:#EDEAE2">WhatsApp us</a>
-        <a href="../range/" style="border:1px solid rgba(237,234,226,0.35); color:#EDEAE2; padding:16px 28px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="borderColor:#EDEAE2; background:rgba(237,234,226,0.08); color:#EDEAE2">See the range</a>
+        <a data-nosnippet href="tel:+353874354655" style="background:#C9A96B; color:#1A1C18; padding:16px 28px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="background:#F1EDE6; color:#1A1C18">Call 087 435 4655</a>
+        <a data-nosnippet href="https://wa.me/353874354655" target="_blank" rel="noopener" style="border:1px solid rgba(237,234,226,0.35); color:#EDEAE2; padding:16px 28px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="borderColor:#EDEAE2; background:rgba(237,234,226,0.08); color:#EDEAE2">WhatsApp us</a>
+        <a data-nosnippet href="../range/" style="border:1px solid rgba(237,234,226,0.35); color:#EDEAE2; padding:16px 28px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="borderColor:#EDEAE2; background:rgba(237,234,226,0.08); color:#EDEAE2">See the range</a>
       </div>
     </div>
   </section>
@@ -199,7 +199,7 @@
   <sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}">
     <div onClick="{{ close }}" style="position:fixed; inset:0; zIndex:200; background:rgba(18,19,16,0.94); display:flex; flexDirection:column; padding:clamp(10px,2vw,22px)">
       <div style="display:flex; alignItems:center; justifyContent:space-between; gap:16px; color:#EDEAE2; flex:0 0 auto; paddingBottom:12px">
-        <div style="fontSize:11px; fontWeight:700; letterSpacing:0.14em; textTransform:uppercase; color:#C9A96B">{{ posLabel }}</div>
+        <div data-nosnippet style="fontSize:11px; fontWeight:700; letterSpacing:0.14em; textTransform:uppercase; color:#C9A96B">{{ posLabel }}</div>
         <button type="button" onClick="{{ close }}" aria-label="Close" style="width:44px; height:44px; border:1px solid rgba(237,234,226,0.4); background:transparent; color:#EDEAE2; fontSize:20px; lineHeight:1; cursor:pointer; flex:0 0 auto" style-hover="background:#EDEAE2; color:#1A1C18">×</button>
       </div>
       <div onClick="{{ stop }}" style="flex:1 1 auto; minHeight:0; display:flex; alignItems:center; justifyContent:center; gap:clamp(8px,1.5vw,18px)">
@@ -209,7 +209,7 @@
       </div>
       <div onClick="{{ stop }}" style="flex:0 0 auto; paddingTop:14px; display:flex; alignItems:center; justifyContent:space-between; gap:18px; flexWrap:wrap">
         <div style="fontSize:14.5px; color:#D8DAD1; lineHeight:1.5; maxWidth:60ch">{{ active.cap }}</div>
-        <a href="../visit/" style="background:#C9A96B; color:#1A1C18; padding:13px 22px; fontSize:11.5px; fontWeight:700; letterSpacing:0.1em; textTransform:uppercase; whiteSpace:nowrap" style-hover="background:#F1EDE6; color:#1A1C18">Come and see it</a>
+        <a data-nosnippet href="../visit/" style="background:#C9A96B; color:#1A1C18; padding:13px 22px; fontSize:11.5px; fontWeight:700; letterSpacing:0.1em; textTransform:uppercase; whiteSpace:nowrap" style-hover="background:#F1EDE6; color:#1A1C18">Come and see it</a>
       </div>
     </div>
   </sc-if>
@@ -217,7 +217,7 @@
   <sc-if value="{{ vidOpen }}" hint-placeholder-val="{{ false }}">
     <div onClick="{{ vidClose }}" style="position:fixed; inset:0; zIndex:210; background:rgba(18,19,16,0.95); display:flex; flexDirection:column; padding:clamp(10px,2vw,22px)">
       <div style="display:flex; alignItems:center; justifyContent:space-between; gap:16px; flex:0 0 auto; paddingBottom:12px">
-        <div style="fontSize:11px; fontWeight:700; letterSpacing:0.14em; textTransform:uppercase; color:#C9A96B">Inside the Ennis showroom</div>
+        <div data-nosnippet style="fontSize:11px; fontWeight:700; letterSpacing:0.14em; textTransform:uppercase; color:#C9A96B">Inside the Ennis showroom</div>
         <button type="button" onClick="{{ vidClose }}" aria-label="Close video" style="width:44px; height:44px; border:1px solid rgba(237,234,226,0.4); background:transparent; color:#EDEAE2; fontSize:20px; lineHeight:1; cursor:pointer; flex:0 0 auto" style-hover="background:#EDEAE2; color:#1A1C18">×</button>
       </div>
       <div onClick="{{ vidStop }}" style="flex:1 1 auto; minHeight:0; display:flex; alignItems:center; justifyContent:center">
@@ -363,7 +363,7 @@ const PHOTOS = [
   { f: "in-balcony", cat: "in", tall: true, cap: "The little deck off the side", alt: "Small decked balcony inside a pod with rope chairs and a table" },
 
   { f: "fit-kitchen-sink", cat: "fit", cap: "Induction hob, sink, sockets on", alt: "Fitted kitchen worktop in a pod home with induction hob and sink" },
-  { f: "fit-kitchen-shower", cat: "fit", cap: "Kitchen one side, shower room the other", alt: "Pod home interior with a fitted kitchen beside a tiled shower room" },
+  { f: "fit-kitchen-shower", cat: "fit", cap: "Kitchen one side, shower room the other", alt: "Pod home interior with a fitted kitchen beside the shower room" },
 
   { f: "floor-wide-1", cat: "floor", cap: "Looking across the floor", alt: "Showroom floor with pod homes, hot tubs and sofas on green turf" },
   { f: "floor-wide-2", cat: "floor", tall: true, cap: "Turf, umbrellas and a lit pod behind", alt: "Showroom floor with artificial grass, garden furniture and a lit pod home behind" },

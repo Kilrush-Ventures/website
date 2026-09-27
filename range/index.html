@@ -50,13 +50,13 @@
   <dc-import name="header" hint-size="100%,64px"></dc-import>
 
   <section style="maxWidth:1280px; margin:0 auto; padding:clamp(40px,6vw,72px) clamp(18px,4vw,32px) 0">
-    <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#6E5628">Six kinds of unit</div>
+    <div data-nosnippet style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#6E5628">Six kinds of unit</div>
     <h1 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(36px,6vw,74px); lineHeight:1.04; letterSpacing:-0.015em; margin:16px 0 0; maxWidth:18ch; textWrap:balance">Six units, each built for a different job</h1>
     <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(320px, 1fr)); gap:clamp(22px,4vw,48px); alignItems:end; marginTop:clamp(20px,3vw,30px)">
       <p style="fontSize:clamp(16px,1.6vw,18px); lineHeight:1.64; color:#33362F; margin:0; maxWidth:54ch; textWrap:pretty">Some are already built and standing on the floor in Ennis. Others are made to order, sized and laid out to suit your site, which takes around three months from order to delivery. Either way, it arrives finished, with the kitchen, bathroom, heating and wiring already in.</p>
       <div style="display:flex; alignItems:flex-end; gap:clamp(16px,3vw,28px); flexWrap:wrap">
-        <a href="../visit/" style="background:#1A1C18; color:#F1EDE6; padding:16px 26px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="background:#A98750; color:#1A1C18">Come and walk through them</a>
-        <a href="../uploads/Kilrush-Ventures-Capsule-Home-Brochure.pdf" target="_blank" rel="noopener" download="" style="flex:0 0 auto; display:inline-flex; alignItems:center; gap:10px; background:#C9A96B; color:#1A1C18; padding:16px 24px; fontSize:12.5px; fontWeight:700; letterSpacing:0.09em; textTransform:uppercase; whiteSpace:nowrap" style-hover="background:#1A1C18; color:#F1EDE6">
+        <a data-nosnippet href="../visit/" style="background:#1A1C18; color:#F1EDE6; padding:16px 26px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="background:#A98750; color:#1A1C18">Come and walk through them</a>
+        <a data-nosnippet href="../uploads/Kilrush-Ventures-Capsule-Home-Brochure.pdf" target="_blank" rel="noopener" download="" style="flex:0 0 auto; display:inline-flex; alignItems:center; gap:10px; background:#C9A96B; color:#1A1C18; padding:16px 24px; fontSize:12.5px; fontWeight:700; letterSpacing:0.09em; textTransform:uppercase; whiteSpace:nowrap" style-hover="background:#1A1C18; color:#F1EDE6">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M12 3v12"></path><path d="M7 11l5 5 5-5"></path><path d="M4 20h16"></path></svg>
           Download our catalogue
         </a>
@@ -77,7 +77,7 @@
           <p style="fontSize:15px; lineHeight:1.66; color:{{ unit.detailColor }}; margin:14px 0 0; maxWidth:52ch; textWrap:pretty">{{ unit.detail }}</p>
           <div style="display:flex; gap:8px; flexWrap:wrap; marginTop:20px">
             <sc-for list="{{ unit.tags }}" as="tag" hint-placeholder-count="3">
-              <span style="fontSize:11.5px; fontWeight:600; letterSpacing:0.08em; textTransform:uppercase; padding:7px 13px; border:1px solid {{ tag.line }}; color:{{ tag.color }}">{{ tag.label }}</span>
+              <span data-nosnippet style="fontSize:11.5px; fontWeight:600; letterSpacing:0.08em; textTransform:uppercase; padding:7px 13px; border:1px solid {{ tag.line }}; color:{{ tag.color }}">{{ tag.label }}</span>
             </sc-for>
           </div>
         </div>
@@ -114,7 +114,7 @@
     <div style="maxWidth:1280px; margin:0 auto; padding:clamp(52px,7vw,84px) clamp(18px,4vw,32px)">
       <div style="display:flex; alignItems:end; justifyContent:space-between; gap:24px; flexWrap:wrap">
         <div>
-          <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#C9A96B">Numbers to plan around</div>
+          <div data-nosnippet style="fontSize:11.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:#C9A96B">Numbers to plan around</div>
           <h2 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(30px,4vw,50px); margin:14px 0 0; letterSpacing:-0.01em">What you actually get</h2>
         </div>
         <p style="fontSize:14.5px; color:#B4B8AC; margin:0; maxWidth:40ch; lineHeight:1.6">Every unit leaves the floor finished. Layouts and dimensions are yours to set, so these are the constants.</p>
@@ -130,7 +130,7 @@
             </div>
             <div style="marginTop:auto; paddingTop:22px">
               <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:{{ f.figSize }}; lineHeight:1.05; color:{{ f.color }}; letterSpacing:-0.01em; transition:font-size 400ms ease">{{ f.figure }}</div>
-              <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#EDEAE2; marginTop:14px">{{ f.label }}</div>
+              <div data-nosnippet style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#EDEAE2; marginTop:14px">{{ f.label }}</div>
               <div style="display:grid; gridTemplateRows:{{ f.rows }}; transition:grid-template-rows 450ms cubic-bezier(.2,.7,.2,1)">
                 <div style="overflow:hidden">
                   <p style="fontSize:14.5px; lineHeight:1.6; color:#C9CCC2; margin:10px 0 0; maxWidth:42ch; minWidth:min(240px, 70vw); opacity:{{ f.bodyOp }}; transition:opacity 300ms ease {{ f.bodyDelay }}">{{ f.body }}</p>
@@ -150,7 +150,7 @@
 
       <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(300px, 1fr)); gap:clamp(28px,4vw,52px); marginTop:clamp(36px,5vw,56px)">
         <div>
-          <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#C9A96B">Available, depending on the unit</div>
+          <div data-nosnippet style="fontSize:11.5px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#C9A96B">Available, depending on the unit</div>
           <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap:0 clamp(20px,3vw,36px); marginTop:18px">
             <sc-for list="{{ standard }}" as="s" hint-placeholder-count="12">
               <div style="display:flex; gap:12px; alignItems:center; justifyContent:space-between; padding:11px 10px; margin:0 -10px; borderBottom:1px solid rgba(237,234,226,0.12); fontSize:15px; color:#D8DAD1; transition:background 200ms ease, color 200ms ease, border-color 200ms ease" style-hover="background:rgba(201,169,107,0.14); color:#F4EFE4; borderBottomColor:#C9A96B">
@@ -201,7 +201,7 @@
           </div>
         </div>
         <div>
-          <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#C9A96B">Yours to decide</div>
+          <div data-nosnippet style="fontSize:11.5px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#C9A96B">Yours to decide</div>
           <div style="marginTop:18px">
             <sc-for list="{{ options }}" as="o" hint-placeholder-count="4">
               <div style="borderBottom:1px solid rgba(237,234,226,0.12); padding:15px 0">
@@ -219,8 +219,8 @@
           <p style="fontSize:14.5px; color:#9BA093; margin:10px 0 0; maxWidth:52ch; lineHeight:1.6">Units on the showroom floor have a fixed price. Anything custom, built to your size and layout, is priced on request, so ring with the space you have in mind and we will give you a figure.</p>
         </div>
         <div style="display:flex; gap:12px; flexWrap:wrap">
-          <a href="tel:+353874354655" style="background:#C9A96B; color:#1A1C18; padding:16px 28px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="background:#F1EDE6; color:#1A1C18">Call 087 435 4655</a>
-          <a href="https://wa.me/353874354655" target="_blank" rel="noopener" style="border:1px solid rgba(237,234,226,0.35); color:#EDEAE2; padding:16px 28px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="borderColor:#EDEAE2; background:rgba(237,234,226,0.08); color:#EDEAE2">WhatsApp</a>
+          <a data-nosnippet href="tel:+353874354655" style="background:#C9A96B; color:#1A1C18; padding:16px 28px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="background:#F1EDE6; color:#1A1C18">Call 087 435 4655</a>
+          <a data-nosnippet href="https://wa.me/353874354655" target="_blank" rel="noopener" style="border:1px solid rgba(237,234,226,0.35); color:#EDEAE2; padding:16px 28px; fontSize:12.5px; fontWeight:600; letterSpacing:0.09em; textTransform:uppercase" style-hover="borderColor:#EDEAE2; background:rgba(237,234,226,0.08); color:#EDEAE2">WhatsApp</a>
         </div>
       </div>
     </div>
@@ -230,17 +230,17 @@
     <div style="maxWidth:1280px; margin:0 auto; padding:clamp(48px,7vw,80px) clamp(18px,4vw,32px)">
     <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(260px, 1fr)); gap:clamp(20px,3vw,32px)">
       <a href="../planning/" style="border:1px solid rgba(26,28,24,0.24); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
-        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#6E5628">Next</div>
+        <div data-nosnippet style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#6E5628">Next</div>
         <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:26px; marginTop:12px">Do you need planning permission?</div>
         <p style="fontSize:14.5px; color:#54574E; margin:10px 0 0; lineHeight:1.6">Since July 2026, often not. Here are the sizes that changed.</p>
       </a>
       <a href="../showroom/" style="border:1px solid rgba(26,28,24,0.24); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
-        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#6E5628">See them</div>
+        <div data-nosnippet style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#6E5628">See them</div>
         <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:26px; marginTop:12px">Inside the Ennis showroom</div>
         <p style="fontSize:14.5px; color:#54574E; margin:10px 0 0; lineHeight:1.6">Photographs of the units standing on the floor.</p>
       </a>
       <a href="../faq/" style="border:1px solid rgba(26,28,24,0.24); background:#FAF8F4; padding:clamp(24px,3vw,34px); display:block" style-hover="borderColor:#A98750">
-        <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#6E5628">Still wondering</div>
+        <div data-nosnippet style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#6E5628">Still wondering</div>
         <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:26px; marginTop:12px">Twelve questions we get</div>
         <p style="fontSize:14.5px; color:#54574E; margin:10px 0 0; lineHeight:1.6">Cost, delivery, warranty, connections, letting.</p>
       </a>
@@ -252,7 +252,7 @@
     <div onClick="{{ lbClose }}" style="position:fixed; inset:0; zIndex:200; background:rgba(18,19,16,0.94); display:flex; flexDirection:column; padding:clamp(10px,2vw,22px)">
       <div style="display:flex; alignItems:center; justifyContent:space-between; gap:16px; color:#EDEAE2; flex:0 0 auto; paddingBottom:12px">
         <div>
-          <div style="fontSize:11px; fontWeight:700; letterSpacing:0.14em; textTransform:uppercase; color:#C9A96B">{{ lbTitle }}</div>
+          <div data-nosnippet style="fontSize:11px; fontWeight:700; letterSpacing:0.14em; textTransform:uppercase; color:#C9A96B">{{ lbTitle }}</div>
           <div style="fontSize:12px; color:#9BA093; marginTop:4px">{{ lbPos }}</div>
         </div>
         <button type="button" onClick="{{ lbClose }}" aria-label="Close" style="width:44px; height:44px; border:1px solid rgba(237,234,226,0.4); background:transparent; color:#EDEAE2; fontSize:20px; lineHeight:1; cursor:pointer; flex:0 0 auto" style-hover="background:#EDEAE2; color:#1A1C18">×</button>
@@ -268,7 +268,7 @@
       </div>
       <div onClick="{{ lbStop }}" style="flex:0 0 auto; paddingTop:14px; display:flex; alignItems:center; justifyContent:space-between; gap:18px; flexWrap:wrap">
         <div style="fontSize:14.5px; color:#D8DAD1; lineHeight:1.5; maxWidth:60ch">{{ lbCap }}</div>
-        <a href="../visit/" style="background:#C9A96B; color:#1A1C18; padding:13px 22px; fontSize:11.5px; fontWeight:700; letterSpacing:0.1em; textTransform:uppercase; whiteSpace:nowrap" style-hover="background:#F1EDE6; color:#1A1C18">Come and see it</a>
+        <a data-nosnippet href="../visit/" style="background:#C9A96B; color:#1A1C18; padding:13px 22px; fontSize:11.5px; fontWeight:700; letterSpacing:0.1em; textTransform:uppercase; whiteSpace:nowrap" style-hover="background:#F1EDE6; color:#1A1C18">Come and see it</a>
       </div>
     </div>
   </sc-if>
@@ -342,9 +342,9 @@ class Component extends DCLogic {
         ph("granny-flat", "Granny flat with timber cladding and bi-fold doors open onto decking", "Bi-folds open onto the decking"),
         ph("gf-bedroom", "Granny flat bedroom with a bed on a drawer base, wardrobe and window", "Bedroom, wardrobe and drawers built in"),
         ph("gf-kitchen-run", "Full kitchen run with sink, induction hob, sockets and wall units", "The full kitchen run"),
-        ph("sr-fit-kitchen-shower", "Granny flat interior with a fitted kitchen beside a tiled shower room", "Kitchen one side, shower room the other"),
-        ph("gf-shower-room", "Tiled shower room with toilet, glass screen and water heater", "Shower room, tiled and screened"),
-        ph("gf-shower-column", "Brushed steel shower column with rain head and handset on marble tiling", "Rain head and handset")
+        ph("sr-fit-kitchen-shower", "Granny flat interior with a fitted kitchen beside the shower room", "Kitchen one side, shower room the other"),
+        ph("gf-shower-room", "Shower room with toilet, glass screen and water heater", "Shower room, screened"),
+        ph("gf-shower-column", "Brushed steel shower column with rain head and handset", "Rain head and handset")
       ],
       "04": [
         ph("site-unit", "Brown 20ft site unit fitted with a serving hatch, propped open", "A 20ft unit with a serving hatch"),
