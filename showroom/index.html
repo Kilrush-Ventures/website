@@ -68,6 +68,10 @@
       <div style="display:flex; gap:12px; flexWrap:wrap">
         <a href="../visit/" style="background:#1A1C18; color:#F1EDE6; padding:16px 24px; fontSize:13px; fontWeight:600; letterSpacing:0.08em; textTransform:uppercase; whiteSpace:nowrap" style-hover="background:#A98750; color:#1A1C18">Map and directions</a>
         <a href="tel:+353874354655" style="border:1px solid rgba(26,28,24,0.28); color:#1A1C18; padding:16px 24px; fontSize:13px; fontWeight:600; letterSpacing:0.08em; textTransform:uppercase; whiteSpace:nowrap" style-hover="borderColor:#1A1C18; background:rgba(26,28,24,0.05)">Call 087 435 4655</a>
+        <button type="button" onClick="{{ vidOpenFn }}" style="display:flex; alignItems:center; gap:10px; border:1px solid rgba(26,28,24,0.28); background:transparent; color:#1A1C18; padding:12px 22px 12px 14px; fontFamily:'Manrope', sans-serif; fontSize:13px; fontWeight:600; letterSpacing:0.08em; textTransform:uppercase; whiteSpace:nowrap; cursor:pointer" style-hover="borderColor:#1A1C18; background:rgba(26,28,24,0.05)">
+          <span style="width:28px; height:28px; borderRadius:50%; background:#1A1C18; color:#F1EDE6; display:flex; alignItems:center; justifyContent:center; flex:0 0 auto"><svg width="10" height="11" viewBox="0 0 11 12" fill="currentColor" aria-hidden="true"><path d="M1.5 0.8L10.2 6L1.5 11.2Z"></path></svg></span>
+          Watch the video
+        </button>
       </div>
     </div>
 
@@ -207,16 +211,29 @@
     </div>
   </sc-if>
 
+  <sc-if value="{{ vidOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ vidClose }}" style="position:fixed; inset:0; zIndex:210; background:rgba(18,19,16,0.95); display:flex; flexDirection:column; padding:clamp(10px,2vw,22px)">
+      <div style="display:flex; alignItems:center; justifyContent:space-between; gap:16px; flex:0 0 auto; paddingBottom:12px">
+        <div style="fontSize:11px; fontWeight:700; letterSpacing:0.14em; textTransform:uppercase; color:#C9A96B">Inside the Ennis showroom</div>
+        <button type="button" onClick="{{ vidClose }}" aria-label="Close video" style="width:44px; height:44px; border:1px solid rgba(237,234,226,0.4); background:transparent; color:#EDEAE2; fontSize:20px; lineHeight:1; cursor:pointer; flex:0 0 auto" style-hover="background:#EDEAE2; color:#1A1C18">×</button>
+      </div>
+      <div onClick="{{ vidStop }}" style="flex:1 1 auto; minHeight:0; display:flex; alignItems:center; justifyContent:center">
+        <video src="../assets/showroom-video.mp4" poster="../assets/showroom-floor-1600.webp" autoPlay="{{ true }}" controls="{{ true }}" playsInline="{{ true }}" style="maxWidth:100%; maxHeight:100%; display:block; background:#000"></video>
+      </div>
+    </div>
+  </sc-if>
+
   <dc-import name="footer" hint-size="100%,300px"></dc-import>
 </div>
 
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { cat: "all", i: 0, expanded: false, heroIdx: 0 };
+  state = { cat: "all", i: 0, expanded: false, heroIdx: 0, vid: false };
 
   componentDidMount() {
     this._onKey = (e) => {
+      if (e.key === "Escape" && this.state.vid) { this.setState({ vid: false }); return; }
       if (e.key === "Escape" && this.state.expanded) { this.setState({ expanded: false }); return; }
       if (e.key === "ArrowRight") this.step(1);
       if (e.key === "ArrowLeft") this.step(-1);
@@ -278,6 +295,10 @@ class Component extends DCLogic {
     return {
       cats,
       posLabel: (idx + 1) + " / " + n,
+      vidOpen: this.state.vid,
+      vidOpenFn: () => this.setState({ vid: true }),
+      vidClose: () => this.setState({ vid: false }),
+      vidStop: (e) => e.stopPropagation(),
       heroSlides: HERO.map((h, i) => ({
         src: `../assets/sr-${h.f}-1600.webp`,
         srcset: `../assets/sr-${h.f}-900.webp 900w, ../assets/sr-${h.f}-1600.webp 1600w`,
