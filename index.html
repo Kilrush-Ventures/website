@@ -214,7 +214,7 @@
 
     <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap:clamp(16px,2vw,24px); marginTop:clamp(28px,4vw,40px)">
       <sc-for list="{{ range }}" as="unit" hint-placeholder-count="6">
-        <div data-reveal="1" style="display:block; border:1px solid rgba(26,28,24,0.24); background:#FAF8F4; overflow:hidden; color:#1A1C18">
+        <div data-reveal="1" style="display:block; border:1px solid {{ unit.cardBorder }}; background:{{ unit.cardBg }}; overflow:hidden; color:#1A1C18">
           <div onClick="{{ unit.openGallery }}" style="height:clamp(200px,22vw,250px); background:{{ unit.tint }}; position:relative; overflow:hidden; cursor:pointer">
             <sc-if value="{{ unit.coverPhoto }}" hint-placeholder-val="{{ true }}">
               <img src="{{ unit.src }}" srcset="{{ unit.srcset }}" sizes="(max-width: 760px) 100vw, 33vw" alt="{{ unit.alt }}" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; objectFit:cover; display:block">
@@ -242,10 +242,10 @@
           </div>
           <div style="height:2px; background:{{ unit.accent }}"></div>
           <div style="padding:clamp(18px,2.2vw,26px)">
-            <h3 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(22px,2.3vw,27px); margin:0; letterSpacing:-0.01em; color:{{ unit.dark }}">{{ unit.title }}</h3>
-            <p style="fontSize:14.5px; lineHeight:1.62; color:#454842; margin:11px 0 0; maxWidth:44ch; textWrap:pretty">{{ unit.body }}</p>
-            <div style="fontSize:12.5px; color:#6B6E64; marginTop:14px; lineHeight:1.5; minHeight:2.6em">{{ unit.cap }}</div>
-            <a href="range/" style="display:inline-block; fontSize:11.5px; fontWeight:600; letterSpacing:0.1em; textTransform:uppercase; color:{{ unit.accent }}; marginTop:10px" style-hover="color:#1A1C18">Read more</a>
+            <h3 style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(22px,2.3vw,27px); margin:0; letterSpacing:-0.01em; color:{{ unit.titleC }}">{{ unit.title }}</h3>
+            <p style="fontSize:14.5px; lineHeight:1.62; color:{{ unit.bodyC }}; margin:11px 0 0; maxWidth:44ch; textWrap:pretty">{{ unit.body }}</p>
+            <div style="fontSize:12.5px; color:{{ unit.capC }}; marginTop:14px; lineHeight:1.5; minHeight:2.6em">{{ unit.cap }}</div>
+            <a href="range/" style="display:inline-block; fontSize:11.5px; fontWeight:600; letterSpacing:0.1em; textTransform:uppercase; color:{{ unit.linkC }}; marginTop:10px" style-hover="color:{{ unit.linkHover }}">Read more</a>
           </div>
         </div>
       </sc-for>
@@ -645,6 +645,9 @@ class Component extends DCLogic {
       };
       return {
         ...u, accent: A[u.key], dark: D[u.key], tint: T[u.key],
+        ...(Number(u.no) % 2 === 1
+          ? { cardBg: "#23261F", cardBorder: "#23261F", titleC: "#C9A96B", bodyC: "#D8DAD1", capC: "#9BA093", linkC: "#C9A96B", linkHover: "#F1EDE6" }
+          : { cardBg: "#FAF8F4", cardBorder: "rgba(26,28,24,0.24)", titleC: D[u.key], bodyC: "#454842", capC: "#6B6E64", linkC: A[u.key], linkHover: "#1A1C18" }),
         src: cur.src, srcset: cur.srcset, alt: cur.alt, cap: cur.cap,
         hasPhoto: !!cur.src, noPhoto: !cur.src,
         coverPhoto: !!cur.src && !cur.portrait,
