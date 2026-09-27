@@ -63,7 +63,7 @@
 
   <section style="maxWidth:1280px; margin:0 auto; padding:clamp(36px,5vw,60px) clamp(18px,4vw,32px) 0">
     <sc-for list="{{ range }}" as="unit" hint-placeholder-count="6">
-      <article style="background:{{ unit.rowBg }}; borderTop:2px solid #1A1C18; padding:clamp(28px,4vw,48px) clamp(18px,3vw,28px); display:grid; gridTemplateColumns:repeat(auto-fit, minmax(300px, 1fr)); gap:clamp(24px,4vw,52px); alignItems:center">
+      <article style="background:{{ unit.rowBg }}; border:1px solid {{ unit.rowBorder }}; borderTop:2px solid #1A1C18; padding:clamp(28px,4vw,48px) clamp(18px,3vw,28px); display:grid; gridTemplateColumns:repeat(auto-fit, minmax(300px, 1fr)); gap:clamp(24px,4vw,52px); alignItems:center">
         <div style="order:{{ unit.textOrder }}">
           <div style="display:flex; alignItems:center; gap:14px">
             <span style="fontSize:11px; fontWeight:700; letterSpacing:0.14em; padding:6px 11px; background:{{ unit.accent }}; color:#FAF8F4">{{ unit.no }}</span>
@@ -424,7 +424,8 @@ class Component extends DCLogic {
         textOrder: i % 2 === 0 ? 1 : 2,
         imgOrder: i % 2 === 0 ? 2 : 1,
         tags: u.tags.map(t => tag(t, u.key, i % 2 === 0)),
-        rowBg: i % 2 === 0 ? "#23261F" : "transparent",
+        rowBg: i % 2 === 0 ? "#23261F" : "#FAF8F4",
+        rowBorder: i % 2 === 0 ? "#23261F" : "rgba(26,28,24,0.16)",
         titleColor: i % 2 === 0 ? "#C9A96B" : D[u.key],
         bodyColor: i % 2 === 0 ? "#D8DAD1" : "#3D4038",
         detailColor: i % 2 === 0 ? "#9BA093" : "#54574E"
