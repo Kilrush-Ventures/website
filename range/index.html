@@ -117,22 +117,40 @@
         <p style="fontSize:14.5px; color:#B4B8AC; margin:0; maxWidth:40ch; lineHeight:1.6">Every unit leaves the floor finished. Layouts and dimensions are yours to set, so these are the constants.</p>
       </div>
 
-      <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap:1px; background:rgba(237,234,226,0.18); border:1px solid rgba(237,234,226,0.18); marginTop:clamp(24px,3vw,34px)">
+      <div style="display:flex; flexWrap:wrap; gap:1px; background:rgba(237,234,226,0.18); border:1px solid rgba(237,234,226,0.18); marginTop:clamp(24px,3vw,34px)">
         <sc-for list="{{ facts }}" as="f" hint-placeholder-count="5">
-          <div style="background:#1A1C18; padding:clamp(22px,2.6vw,30px) clamp(18px,2vw,24px)">
-            <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:clamp(28px,3.2vw,38px); lineHeight:1; color:{{ f.color }}; letterSpacing:-0.01em">{{ f.figure }}</div>
-            <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#EDEAE2; marginTop:14px">{{ f.label }}</div>
-            <p style="fontSize:13.5px; lineHeight:1.6; color:#9BA093; margin:8px 0 0">{{ f.body }}</p>
+          <div role="button" tabindex="0" aria-expanded="{{ f.expanded }}" onClick="{{ f.select }}" onKeyDown="{{ f.onKey }}" style="flex:{{ f.flex }}; minWidth:0; position:relative; overflow:hidden; cursor:pointer; outline:none; background:{{ f.bg }}; padding:clamp(22px,2.6vw,30px) clamp(18px,2vw,24px); minHeight:{{ f.minH }}; display:flex; flexDirection:column; transition:flex 500ms cubic-bezier(.2,.7,.2,1), background 350ms ease" style-focus="boxShadow:inset 0 0 0 2px #C9A96B">
+            <div style="position:absolute; left:0; top:0; height:3px; width:{{ f.barW }}; background:{{ f.color }}; transition:width 500ms cubic-bezier(.2,.7,.2,1)"></div>
+            <div style="display:flex; justifyContent:space-between; alignItems:center; gap:12px">
+              <span style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; color:#9BA093">{{ f.num }}</span>
+              <span aria-hidden="true" style="width:28px; height:28px; display:flex; alignItems:center; justifyContent:center; border:1px solid {{ f.iconBorder }}; color:{{ f.color }}; transform:rotate({{ f.iconRot }}); transition:transform 400ms ease, border-color 300ms"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 1v10M1 6h10"></path></svg></span>
+            </div>
+            <div style="marginTop:auto; paddingTop:22px">
+              <div style="font-family:'Newsreader', Georgia, serif; fontWeight:500; fontSize:{{ f.figSize }}; lineHeight:1.05; color:{{ f.color }}; letterSpacing:-0.01em; transition:font-size 400ms ease">{{ f.figure }}</div>
+              <div style="fontSize:11px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#EDEAE2; marginTop:14px">{{ f.label }}</div>
+              <div style="display:grid; gridTemplateRows:{{ f.rows }}; transition:grid-template-rows 450ms cubic-bezier(.2,.7,.2,1)">
+                <div style="overflow:hidden">
+                  <p style="fontSize:14.5px; lineHeight:1.6; color:#C9CCC2; margin:10px 0 0; maxWidth:42ch; minWidth:min(240px, 70vw); opacity:{{ f.bodyOp }}; transition:opacity 300ms ease {{ f.bodyDelay }}">{{ f.body }}</p>
+                </div>
+              </div>
+            </div>
           </div>
         </sc-for>
+      </div>
+      <div style="display:flex; alignItems:center; justifyContent:space-between; gap:16px; marginTop:16px">
+        <span style="fontSize:12.5px; color:#9BA093; letterSpacing:0.04em">{{ factCount }}</span>
+        <div style="display:flex; gap:8px">
+          <button type="button" aria-label="Previous" onClick="{{ factPrev }}" style="width:40px; height:40px; display:flex; alignItems:center; justifyContent:center; background:transparent; color:#EDEAE2; border:1px solid rgba(237,234,226,0.28); cursor:pointer" style-hover="borderColor:#C9A96B; color:#C9A96B"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 2L4 7l5 5"></path></svg></button>
+          <button type="button" aria-label="Next" onClick="{{ factNext }}" style="width:40px; height:40px; display:flex; alignItems:center; justifyContent:center; background:transparent; color:#EDEAE2; border:1px solid rgba(237,234,226,0.28); cursor:pointer" style-hover="borderColor:#C9A96B; color:#C9A96B"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 2l5 5-5 5"></path></svg></button>
+        </div>
       </div>
 
       <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(300px, 1fr)); gap:clamp(28px,4vw,52px); marginTop:clamp(36px,5vw,56px)">
         <div>
-          <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#C9A96B">Available across the range</div>
+          <div style="fontSize:11.5px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#C9A96B">Available, depending on the unit</div>
           <div style="display:grid; gridTemplateColumns:repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap:0 clamp(20px,3vw,36px); marginTop:18px">
             <sc-for list="{{ standard }}" as="s" hint-placeholder-count="12">
-              <div style="display:flex; gap:12px; alignItems:center; justifyContent:space-between; padding:11px 0; borderBottom:1px solid rgba(237,234,226,0.12); fontSize:15px; color:#D8DAD1">
+              <div style="display:flex; gap:12px; alignItems:center; justifyContent:space-between; padding:11px 10px; margin:0 -10px; borderBottom:1px solid rgba(237,234,226,0.12); fontSize:15px; color:#D8DAD1; transition:background 200ms ease, color 200ms ease, border-color 200ms ease" style-hover="background:rgba(201,169,107,0.14); color:#F4EFE4; borderBottomColor:#C9A96B">
                 <span style="display:flex; gap:12px; alignItems:baseline">
                   <span style="width:5px; height:5px; background:#C9A96B; display:block; flex:0 0 auto; transform:translateY(-3px)"></span>
                   {{ s.label }}
@@ -268,6 +286,8 @@ class Component extends DCLogic {
   }
 
   componentDidMount() {
+    this._onRs = () => { const n = window.innerWidth < 720; if (n !== !!this.state.narrow) this.setState({ narrow: n }); };
+    this._onRs(); window.addEventListener("resize", this._onRs);
     this._onKeyLb = (e) => {
       if (this.state.lbUnit == null) return;
       if (e.key === "Escape") this.setState({ lbUnit: null });
@@ -421,11 +441,28 @@ class Component extends DCLogic {
 
     const facts = [
       { figure: "32–45 m²", label: "Floor area", body: "The range the new planning exemption allows. Base sizes are a starting point, dimensions can go where you need them.", color: "#C9A96B" },
-      { figure: "75 mm", label: "Insulation", body: "On every wall, floor and ceiling, so the unit holds heat in a Clare winter.", color: "#8FA37C" },
+      { figure: "50–75 mm", label: "Insulation", body: "On every wall, floor and ceiling, so the unit holds heat in a Clare winter. Thickness depends on the unit.", color: "#8FA37C" },
       { figure: "3 months", label: "Custom build", body: "From order to delivery on a fully custom unit, with a 50% deposit up front. Some units are on the floor now and can go sooner.", color: "#C98F6B" },
       { figure: "50 year", label: "Warranty", body: "Against structural and manufacturing defects, on the terms in your warranty documentation.", color: "#7FA0AC" },
       { figure: "12 t", label: "Weight", body: "Up to twelve tonnes delivered, which is why the base and the access have to be right.", color: "#B0A489" }
     ];
+    const fi = this.state.fact ?? 0, fN = facts.length, narrow = !!this.state.narrow;
+    const setFact = (i) => this.setState({ fact: (i + fN) % fN });
+    const tint = (h) => { const n = parseInt(h.slice(1), 16); return "rgba(" + (n >> 16) + "," + ((n >> 8) & 255) + "," + (n & 255) + ",0.13)"; };
+    facts.forEach((f, i) => {
+      const on = i === fi;
+      Object.assign(f, {
+        num: String(i + 1).padStart(2, "0"), expanded: on ? "true" : "false",
+        flex: narrow ? "1 1 100%" : (on ? "3 1 220px" : "1 1 96px"), figSize: on || narrow ? "clamp(28px,3.2vw,40px)" : "clamp(22px,2.4vw,30px)", minH: narrow ? "0px" : "clamp(170px,18vw,230px)", bg: on ? tint(f.color) : "#1A1C18",
+        barW: on ? "100%" : "0%", rows: on ? "1fr" : "0fr", bodyOp: on ? 1 : 0, bodyDelay: on ? "180ms" : "0ms",
+        iconRot: on ? "45deg" : "0deg", iconBorder: on ? f.color : "rgba(237,234,226,0.28)",
+        select: () => setFact(i),
+        onKey: (e) => {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setFact(i); }
+          else if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); const j = i + (e.key === "ArrowRight" ? 1 : -1); setFact(j); const s = e.currentTarget.parentNode.children[(j + fN) % fN]; s && s.focus(); }
+        }
+      });
+    });
 
     const standard = [
       { label: "Fitted kitchen", iconKitchen: true },
@@ -451,6 +488,8 @@ class Component extends DCLogic {
 
     return {
       range, facts, standard, options,
+      factCount: String(fi + 1).padStart(2, "0") + " / " + String(fN).padStart(2, "0"),
+      factPrev: () => setFact(fi - 1), factNext: () => setFact(fi + 1),
       lbOpen: !!lbPhoto,
       lbSrc: lbPhoto ? lbPhoto.src : "",
       lbAlt: lbPhoto ? lbPhoto.alt : "",
